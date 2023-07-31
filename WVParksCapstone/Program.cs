@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
+using WVParksCapstone.Models;
 using WVParksCapstone.Repositories;
 
 
@@ -22,7 +23,8 @@ namespace WVParksCapstone
             builder.Services.AddTransient<IStarTypeRepository, StarTypeRepository>();
             builder.Services.AddTransient<IStayTypeRepository, StayTypeRepository>();
             builder.Services.AddTransient<ITrailDifficultyRepository, TrailDifficultyRepository>();
-
+            builder.Services.AddTransient<IActivityTypeRepository, ActivityTypeRepository>();
+            
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
