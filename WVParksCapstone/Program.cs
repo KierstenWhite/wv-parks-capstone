@@ -19,6 +19,7 @@ namespace WVParksCapstone
             builder.Services.AddCors();
 
             builder.Services.AddTransient<IUserRepository, UserRepository>();
+            builder.Services.AddTransient<IStarTypeRepository, StarTypeRepository>();
 
             var app = builder.Build();
 

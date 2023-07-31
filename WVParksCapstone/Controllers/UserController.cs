@@ -24,16 +24,16 @@ namespace WVParksCapstone.Controllers
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            var post = _userRepository.GetById(id);
-            if (post == null)
+            var user = _userRepository.GetById(id);
+            if (user == null)
             {
                 return NotFound();
             }
-            return Ok(post);
+            return Ok(user);
         }
 
         [HttpPost]
-        public IActionResult UserProfile(User user)
+        public IActionResult User(User user)
         {
             _userRepository.Add(user);
             return CreatedAtAction("Get", new { id = user.Id }, user);
