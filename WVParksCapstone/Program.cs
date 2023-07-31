@@ -21,6 +21,7 @@ namespace WVParksCapstone
             builder.Services.AddTransient<IUserRepository, UserRepository>();
             builder.Services.AddTransient<IStarTypeRepository, StarTypeRepository>();
             builder.Services.AddTransient<IStayTypeRepository, StayTypeRepository>();
+            builder.Services.AddTransient<ITrailDifficultyRepository, TrailDifficultyRepository>();
 
             var app = builder.Build();
 
