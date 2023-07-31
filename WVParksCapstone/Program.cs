@@ -25,7 +25,8 @@ namespace WVParksCapstone
             builder.Services.AddTransient<ITrailDifficultyRepository, TrailDifficultyRepository>();
             builder.Services.AddTransient<IActivityTypeRepository, ActivityTypeRepository>();
             builder.Services.AddTransient<IRegionRepository, RegionRepository>();
-            
+            builder.Services.AddTransient<IParkRepository, ParkRepository>();
+
 
             var app = builder.Build();
 
