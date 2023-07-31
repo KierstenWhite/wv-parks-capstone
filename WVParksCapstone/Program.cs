@@ -24,7 +24,9 @@ namespace WVParksCapstone
             builder.Services.AddTransient<IStayTypeRepository, StayTypeRepository>();
             builder.Services.AddTransient<ITrailDifficultyRepository, TrailDifficultyRepository>();
             builder.Services.AddTransient<IActivityTypeRepository, ActivityTypeRepository>();
+            builder.Services.AddTransient<IRegionRepository, RegionRepository>();
             
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
