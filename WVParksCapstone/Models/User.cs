@@ -8,6 +8,6 @@
         public string UserPhoto { get; set; }
         public bool IsAdmin { get; set; }
         public string Bio { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime DateCreated { get; set; }
     }
 }
