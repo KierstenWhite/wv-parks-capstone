@@ -28,6 +28,7 @@ namespace WVParksCapstone
             builder.Services.AddTransient<IParkRepository, ParkRepository>();
             builder.Services.AddTransient<IActivityRepository, ActivityRepository>();
             builder.Services.AddTransient<IHistoricalSiteRepository, HistoricalSiteRepository>();
+            builder.Services.AddTransient<IStayRepository, StayRepository>();
 
             var app = builder.Build();
 
