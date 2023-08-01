@@ -8,10 +8,10 @@ using WVParksCapstone.Utils;
 
 namespace WVParksCapstone.Repositories
 {
-    public class ParkRepository : IParkRepository
+    public class WaterfallRepository : IWaterfallRepository
     {
         private readonly string _connectionString;
-        public ParkRepository(IConfiguration configuration)
+        public WaterfallRepository(IConfiguration configuration)
         {
             _connectionString = configuration.GetConnectionString("DefaultConnection");
         }
@@ -21,7 +21,7 @@ namespace WVParksCapstone.Repositories
             get { return new SqlConnection(_connectionString); }
         }
 
-        public List<Park> GetAll()
+        public List<Waterfall> GetAll()
         {
             using (var conn = Connection)
             {
@@ -29,43 +29,39 @@ namespace WVParksCapstone.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                          SELECT p.Id AS ParkId, p.Name, p.Address, p.City, p.State, p.Zipcode, p.ImageUrl, p.RegionId,
-                            
+                          SELECT w.Id AS WaterfallId, w.Name, w.Description, w.RegionId, w.ImageUrl,
                             r.Name AS RegionName
-                            FROM Park p
-                            LEFT JOIN Region r ON p.RegionId = r.id";
+                            FROM Waterfall w
+                            LEFT JOIN Region r ON w.RegionId = r.id;";
 
                     var reader = cmd.ExecuteReader();
 
-                    var park = new List<Park>();
+                    var waterfall = new List<Waterfall>();
                     while (reader.Read())
                     {
-                        park.Add(new Park()
+                        waterfall.Add(new Waterfall()
                         {
-                            Id = DbUtils.GetInt(reader, "ParkId"),
+                            Id = DbUtils.GetInt(reader, "WaterfallId"),
                             Name = DbUtils.GetString(reader, "Name"),
-                            Address = DbUtils.GetString(reader, "Address"),
-                            City = DbUtils.GetString(reader, "City"),
-                            State = DbUtils.GetString(reader, "State"),
-                            Zipcode = DbUtils.GetString(reader, "Zipcode"),
-                            ImageUrl = DbUtils.GetString(reader, "ImageUrl"),
+                            Description = DbUtils.GetString(reader, "Description"),
                             RegionId = DbUtils.GetInt(reader, "RegionId"),
+                            ImageUrl = DbUtils.GetString(reader, "ImageUrl"),
                             Region = new Region()
                             {
                                 Id = DbUtils.GetInt(reader, "RegionId"),
                                 Name = DbUtils.GetString(reader, "RegionName"),
-                            }
+                            },
                         });
                     }
 
                     reader.Close();
 
-                    return park;
+                    return waterfall;
                 }
             }
         }
 
-        public Park GetById(int id)
+        public Waterfall GetById(int id)
         {
             using (var conn = Connection)
             {
@@ -73,41 +69,37 @@ namespace WVParksCapstone.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                          SELECT p.Id AS ParkId, p.Name, p.Address, p.City, p.State, p.Zipcode, p.ImageUrl, p.RegionId,
-
+                           SELECT w.Id AS WaterfallId, w.Name, w.Description, w.RegionId, w.ImageUrl,
                             r.Name AS RegionName
-                            FROM Park p
-                            LEFT JOIN Region r ON p.RegionId = r.id
-                           WHERE p.Id = @Id";
+                            FROM Waterfall w
+                            LEFT JOIN Region r ON w.RegionId = r.id
+                           WHERE w.Id = @Id";
 
                     DbUtils.AddParameter(cmd, "@Id", id);
 
                     var reader = cmd.ExecuteReader();
 
-                    Park park = null;
+                    Waterfall waterfall = null;
                     if (reader.Read())
                     {
-                        park = new Park()
+                        waterfall = new Waterfall()
                         {
-                            Id = DbUtils.GetInt(reader, "ParkId"),
+                            Id = DbUtils.GetInt(reader, "WaterfallId"),
                             Name = DbUtils.GetString(reader, "Name"),
-                            Address = DbUtils.GetString(reader, "Address"),
-                            City = DbUtils.GetString(reader, "City"),
-                            State = DbUtils.GetString(reader, "State"),
-                            Zipcode = DbUtils.GetString(reader, "Zipcode"),
-                            ImageUrl = DbUtils.GetString(reader, "ImageUrl"),
+                            Description = DbUtils.GetString(reader, "Description"),
                             RegionId = DbUtils.GetInt(reader, "RegionId"),
+                            ImageUrl = DbUtils.GetString(reader, "ImageUrl"),
                             Region = new Region()
                             {
                                 Id = DbUtils.GetInt(reader, "RegionId"),
                                 Name = DbUtils.GetString(reader, "RegionName"),
-                            }
+                            },
                         };
                     }
 
                     reader.Close();
 
-                    return park;
+                    return waterfall;
                 }
             }
         }
