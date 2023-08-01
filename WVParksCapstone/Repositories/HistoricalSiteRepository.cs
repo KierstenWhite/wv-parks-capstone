@@ -8,10 +8,10 @@ using WVParksCapstone.Utils;
 
 namespace WVParksCapstone.Repositories
 {
-    public class ActivityRepository : IActivityRepository
+    public class HistoricalSiteRepository : IHistoricalSiteRepository
     {
         private readonly string _connectionString;
-        public ActivityRepository(IConfiguration configuration)
+        public HistoricalSiteRepository(IConfiguration configuration)
         {
             _connectionString = configuration.GetConnectionString("DefaultConnection");
         }
@@ -21,7 +21,7 @@ namespace WVParksCapstone.Repositories
             get { return new SqlConnection(_connectionString); }
         }
 
-        public List<Activity> GetAll()
+        public List<HistoricalSite> GetAll()
         {
             using (var conn = Connection)
             {
@@ -29,47 +29,39 @@ namespace WVParksCapstone.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                          SELECT a.Id AS ActivityId, a.Name, a.ParkId, a.ImageUrl, a.Description, a.ActivityTypeId,
-                            p.Name AS ParkName,
-                            at.Name AS ActivityTypeName
-                            FROM Activity a
-                            LEFT JOIN Park p ON a.ParkId = p.id
-                            LEFT JOIN ActivityType at ON a.ActivityTypeId = at.id;";
+                          SELECT h.Id AS HistoricalSiteId, h.Name, h.ParkId, h.ImageUrl, h.Description, 
+                            p.Name AS ParkName
+                            FROM HistoricalSite h
+                            LEFT JOIN Park p ON h.ParkId = p.id;";
 
                     var reader = cmd.ExecuteReader();
 
-                    var activity = new List<Activity>();
+                    var historicalSite = new List<HistoricalSite>();
                     while (reader.Read())
                     {
-                        activity.Add(new Activity()
+                        historicalSite.Add(new HistoricalSite()
                         {
-                            Id = DbUtils.GetInt(reader, "ActivityId"),
+                            Id = DbUtils.GetInt(reader, "HistoricalSiteId"),
                             Name = DbUtils.GetString(reader, "Name"),
                             ParkId = DbUtils.GetInt(reader, "ParkId"),
                             ImageUrl = DbUtils.GetString(reader, "ImageUrl"),
                             Description = DbUtils.GetString(reader, "Description"),
-                            ActivityTypeId = DbUtils.GetInt(reader, "ActivityTypeId"),
                             Park = new Park()
                             {
                                 Id = DbUtils.GetInt(reader, "ParkId"),
                                 Name = DbUtils.GetString(reader, "ParkName"),
-                            },
-                            ActivityType = new ActivityType()
-                            {
-                                Id = DbUtils.GetInt(reader, "ActivityTypeId"),
-                                Name = DbUtils.GetString(reader, "ActivityTypeName"),
                             }
                         });
                     }
 
                     reader.Close();
 
-                    return activity;
+                    return historicalSite;
                 }
             }
         }
 
-        public Activity GetById(int id)
+        public HistoricalSite GetById(int id)
         {
             using (var conn = Connection)
             {
@@ -77,45 +69,37 @@ namespace WVParksCapstone.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                           SELECT a.Id AS ActivityId, a.Name, a.ParkId, a.ImageUrl, a.Description, a.ActivityTypeId,
-                            p.Name AS ParkName,
-                            at.Name AS ActivityTypeName
-                            FROM Activity a
-                            LEFT JOIN Park p ON a.ParkId = p.id
-                            LEFT JOIN ActivityType at ON a.ActivityTypeId = at.id
-                           WHERE a.Id = @Id";
+                           SELECT h.Id AS HistoricalSiteId, h.Name, h.ParkId, h.ImageUrl, h.Description, 
+                            p.Name AS ParkName
+                            FROM HistoricalSite h
+                            LEFT JOIN Park p ON h.ParkId = p.id
+                           WHERE h.Id = @Id";
 
                     DbUtils.AddParameter(cmd, "@Id", id);
 
                     var reader = cmd.ExecuteReader();
 
-                    Activity activity = null;
+                    HistoricalSite historicalSite = null;
                     if (reader.Read())
                     {
-                        activity = new Activity()
+                        historicalSite = new HistoricalSite()
                         {
-                            Id = DbUtils.GetInt(reader, "ActivityId"),
+                            Id = DbUtils.GetInt(reader, "HistoricalSiteId"),
                             Name = DbUtils.GetString(reader, "Name"),
                             ParkId = DbUtils.GetInt(reader, "ParkId"),
                             ImageUrl = DbUtils.GetString(reader, "ImageUrl"),
                             Description = DbUtils.GetString(reader, "Description"),
-                            ActivityTypeId = DbUtils.GetInt(reader, "ActivityTypeId"),
                             Park = new Park()
                             {
                                 Id = DbUtils.GetInt(reader, "ParkId"),
                                 Name = DbUtils.GetString(reader, "ParkName"),
-                            },
-                            ActivityType = new ActivityType()
-                            {
-                                Id = DbUtils.GetInt(reader, "ActivityTypeId"),
-                                Name = DbUtils.GetString(reader, "ActivityTypeName"),
                             }
                         };
-                    }
+                    };
 
                     reader.Close();
 
-                    return activity;
+                    return historicalSite;
                 }
             }
         }
