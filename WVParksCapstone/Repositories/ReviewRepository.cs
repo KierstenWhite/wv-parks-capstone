@@ -30,13 +30,15 @@ namespace WVParksCapstone.Repositories
                 {
                     cmd.CommandText = @"
                           SELECT r.Id, r.UserId, r.ParkId, r.StarsId, r.ReviewTitle, r.ImageUrl, r.DateOfVisit,
-                                 p.Name AS ParkName,
-                                 u.Email, u.Username, u.UserPhoto, u.IsAdmin, u.Bio, u.DateCreated,
-                                 s.Name, s.Value
-                                 FROM Review r
-                                 LEFT JOIN [User] u on r.UserId = u.id
-                                 LEFT JOIN Park p ON r.ParkId = p.id
-                                 LEFT JOIN StarType s ON r.StarsId = s.id";
+                           p.Name AS ParkName, p.Address, p.City, p.State, p.Zipcode, p.ImageUrl AS ParkImage, p.RegionId,
+                           u.Email, u.Username, u.UserPhoto, u.IsAdmin, u.Bio, u.DateCreated,
+                           s.Name, s.Value,
+                           region.Id AS RegionId, region.Name AS RegionName
+                            FROM Review r
+                            LEFT JOIN [User] u ON r.UserId = u.id
+                            LEFT JOIN Park p ON r.ParkId = p.id
+                            LEFT JOIN StarType s ON r.StarsId = s.id
+                            LEFT JOIN Region region ON p.RegionId = region.Id;";
 
                     var reader = cmd.ExecuteReader();
 
@@ -66,13 +68,24 @@ namespace WVParksCapstone.Repositories
                             {
                                 Id = DbUtils.GetInt(reader, "ParkId"),
                                 Name = DbUtils.GetString(reader, "ParkName"),
+                                Address = DbUtils.GetString(reader, "Address"),
+                                City = DbUtils.GetString(reader, "City"),
+                                State = DbUtils.GetString(reader, "State"),
+                                Zipcode = DbUtils.GetString(reader, "Zipcode"),
+                                ImageUrl = DbUtils.GetString(reader, "ParkImage"),
+                                RegionId = DbUtils.GetInt(reader, "RegionId"),
+                                Region = new Region()
+                                {
+                                    Id = DbUtils.GetInt(reader, "RegionId"),
+                                    Name = DbUtils.GetString(reader, "RegionName")
+                                }
                             },
                             StarType = new StarType()
                             {
                                 Id = DbUtils.GetInt(reader, "StarsId"),
                                 Name = DbUtils.GetString(reader, "Name"),
                                 value = DbUtils.GetInt(reader, "value"),
-                            }
+                            },
                         });
                     }
 
@@ -92,13 +105,15 @@ namespace WVParksCapstone.Repositories
                 {
                     cmd.CommandText = @"
                            SELECT r.Id, r.UserId, r.ParkId, r.StarsId, r.ReviewTitle, r.ImageUrl, r.DateOfVisit,
-                                 p.Name AS ParkName,
-                                 u.Email, u.Username, u.UserPhoto, u.IsAdmin, u.Bio, u.DateCreated,
-                                 s.Name, s.Value
-                                 FROM Review r
-                                 LEFT JOIN [User] u on r.UserId = u.id
-                                 LEFT JOIN Park p ON r.ParkId = p.id
-                                 LEFT JOIN StarType s ON r.StarsId = s.id
+                           p.Name AS ParkName, p.Address, p.City, p.State, p.Zipcode, p.ImageUrl AS ParkImage, p.RegionId,
+                           u.Email, u.Username, u.UserPhoto, u.IsAdmin, u.Bio, u.DateCreated,
+                           s.Name, s.Value,
+                           region.Id AS RegionId, region.Name AS RegionName
+                            FROM Review r
+                            LEFT JOIN [User] u ON r.UserId = u.id
+                            LEFT JOIN Park p ON r.ParkId = p.id
+                            LEFT JOIN StarType s ON r.StarsId = s.id
+                            LEFT JOIN Region region ON p.RegionId = region.Id
                            WHERE r.Id = @Id";
 
                     DbUtils.AddParameter(cmd, "@Id", id);
@@ -131,13 +146,24 @@ namespace WVParksCapstone.Repositories
                             {
                                 Id = DbUtils.GetInt(reader, "ParkId"),
                                 Name = DbUtils.GetString(reader, "ParkName"),
+                                Address = DbUtils.GetString(reader, "Address"),
+                                City = DbUtils.GetString(reader, "City"),
+                                State = DbUtils.GetString(reader, "State"),
+                                Zipcode = DbUtils.GetString(reader, "Zipcode"),
+                                ImageUrl = DbUtils.GetString(reader, "ParkImage"),
+                                RegionId = DbUtils.GetInt(reader, "RegionId"),
+                                Region = new Region()
+                                {
+                                    Id = DbUtils.GetInt(reader, "RegionId"),
+                                    Name = DbUtils.GetString(reader, "RegionName")
+                                }
                             },
                             StarType = new StarType()
                             {
                                 Id = DbUtils.GetInt(reader, "StarsId"),
                                 Name = DbUtils.GetString(reader, "Name"),
                                 value = DbUtils.GetInt(reader, "value"),
-                            }
+                            },
                         };
                     }
 
@@ -181,7 +207,7 @@ namespace WVParksCapstone.Repositories
                 {
                     cmd.CommandText = @"
                         UPDATE Review
-                           SET UserId = @UserId
+                           SET UserId = @UserId,
                                ParkId = @ParkId,
                                StarsId = @StarsId,
                                ReviewTitle = @ReviewTitle,
@@ -192,7 +218,7 @@ namespace WVParksCapstone.Repositories
                     DbUtils.AddParameter(cmd, "@UserId", review.UserId);
                     DbUtils.AddParameter(cmd, "@ParkId", review.ParkId);
                     DbUtils.AddParameter(cmd, "@StarsId", review.StarsId);
-                    DbUtils.AddParameter(cmd, "ReviewTitle", review.ReviewTitle);
+                    DbUtils.AddParameter(cmd, "@ReviewTitle", review.ReviewTitle);
                     DbUtils.AddParameter(cmd, "@ImageUrl", review.ImageUrl);
                     DbUtils.AddParameter(cmd, "@DateOfVisit", review.DateOfVisit);
                     DbUtils.AddParameter(cmd, "@Id", review.Id);
