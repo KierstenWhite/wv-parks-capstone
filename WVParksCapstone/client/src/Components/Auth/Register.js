@@ -1,7 +1,7 @@
 import React, { useState} from "react";
-import { Form, Button } from "semantic-ui-react";
+import { Form, FormGroup, Input, Button } from "semantic-ui-react";
 import { useNavigate } from "react-router-dom";
-import { register } from "../Managers/UserProfileManager";
+import { register } from "../Managers/UserManager";
 
 
 export default function Register({setIsLoggedIn}) {
@@ -48,12 +48,10 @@ export default function Register({setIsLoggedIn}) {
           <Form.Input id="email" label="Email" onChange={e => setEmail(e.target.value)} />
         </FormGroup>
         <FormGroup>
-          <Label for="password">Password</Label>
-          <Form.Input id="password" type="password" onChange={e => setPassword(e.target.value)} />
+          <Form.Input id="password" label="Create a Password" type="password" onChange={e => setPassword(e.target.value)} />
         </FormGroup>
         <FormGroup>
-          <Label for="confirmPassword">Confirm Password</Label>
-          <Form.Input id="confirmPassword" type="password" onChange={e => setConfirmPassword(e.target.value)} />
+          <Form.Input id="confirmPassword" label="Confirm Password" type="password" onChange={e => setConfirmPassword(e.target.value)} />
         </FormGroup>
         <FormGroup>
           <Button>Register</Button>

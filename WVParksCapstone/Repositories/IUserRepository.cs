@@ -9,5 +9,7 @@ namespace WVParksCapstone.Repositories
         List<User> GetAll();
         User GetById(int id);
         void Update(User user);
+
+        User GetByEmail(string email);
     }
 }

@@ -6,5 +6,7 @@ namespace WVParksCapstone.Repositories
     {
         List<Waterfall> GetAll();
         Waterfall GetById(int id);
+
+        List<Waterfall> GetWaterfallByRegionId(int id);
     }
 }

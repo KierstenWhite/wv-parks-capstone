@@ -64,3 +64,6 @@ C:\Users\user\workspace\testCapstoneDatabase\WVParksCapstone\WVParksCapstone\obj
 C:\Users\user\workspace\testCapstoneDatabase\WVParksCapstone\WVParksCapstone\obj\Debug\net6.0\WVParksCapstone.pdb
 C:\Users\user\workspace\testCapstoneDatabase\WVParksCapstone\WVParksCapstone\obj\Debug\net6.0\WVParksCapstone.genruntimeconfig.cache
 C:\Users\user\workspace\testCapstoneDatabase\WVParksCapstone\WVParksCapstone\obj\Debug\net6.0\ref\WVParksCapstone.dll
+C:\Users\user\workspace\testCapstoneDatabase\WVParksCapstone\WVParksCapstone\bin\Debug\net6.0\client\package-lock.json
+C:\Users\user\workspace\testCapstoneDatabase\WVParksCapstone\WVParksCapstone\bin\Debug\net6.0\client\package.json
+C:\Users\user\workspace\testCapstoneDatabase\WVParksCapstone\WVParksCapstone\bin\Debug\net6.0\client\public\manifest.json

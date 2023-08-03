@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using WVParksCapstone.Repositories;
 using WVParksCapstone.Models;
+using Microsoft.Extensions.Hosting;
 
 namespace WVParksCapstone.Controllers
 {
@@ -30,6 +31,17 @@ namespace WVParksCapstone.Controllers
                 return NotFound();
             }
             return Ok(waterfall);
+        }
+
+        [HttpGet("GetWaterfallByRegionId{Id}")]
+        public IActionResult GetWaterfallByRegionId(int Id)
+        {
+            List<Waterfall> waterfalls = _waterfallRepository.GetWaterfallByRegionId(Id);
+            if (waterfalls == null)
+            {
+                return NotFound();
+            }
+            return Ok(waterfalls);
         }
     }
 }

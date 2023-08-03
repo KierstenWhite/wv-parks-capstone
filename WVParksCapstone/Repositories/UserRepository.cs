@@ -94,6 +94,43 @@ namespace WVParksCapstone.Repositories
             }
         }
 
+        public User GetByEmail(string email)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                         SELECT Id, Email, Username, UserPhoto, IsAdmin, Bio, DateCreated
+                          FROM [User]
+                         WHERE Email = @email";
+
+                    DbUtils.AddParameter(cmd, "@email", email);
+
+                    User user = null;
+
+                    var reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        user = new User()
+                        {
+                            Id = DbUtils.GetInt(reader, "Id"),
+                            Email = DbUtils.GetString(reader, "Email"),
+                            Username = DbUtils.GetString(reader, "Username"),
+                            UserPhoto = DbUtils.GetString(reader, "UserPhoto"),
+                            IsAdmin = DbUtils.IsDbNull(reader, "IsAdmin"),
+                            Bio = DbUtils.GetString(reader, "Bio"),
+                            DateCreated = DbUtils.GetDateTime(reader, "DateCreated"),
+                        };
+                    }
+                    reader.Close();
+
+                    return user;
+                }
+            }
+        }
+
         public void Add(User user)
         {
             using (var conn = Connection)
