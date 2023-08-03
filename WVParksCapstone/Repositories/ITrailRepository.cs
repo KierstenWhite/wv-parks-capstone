@@ -6,5 +6,6 @@ namespace WVParksCapstone.Repositories
     {
         List<Trail> GetAll();
         Trail GetById(int id);
+        List<Trail> GetTrailByParkId(int id);
     }
 }

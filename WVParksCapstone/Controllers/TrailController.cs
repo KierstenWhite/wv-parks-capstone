@@ -31,5 +31,16 @@ namespace WVParksCapstone.Controllers
             }
             return Ok(trail);
         }
+
+        [HttpGet("GetTrailByParkId{Id}")]
+        public IActionResult GetWaterfallByRegionId(int Id)
+        {
+            List<Trail> trail = _trailRepository.GetTrailByParkId(Id);
+            if (trail == null)
+            {
+                return NotFound();
+            }
+            return Ok(trail);
+        }
     }
 }
