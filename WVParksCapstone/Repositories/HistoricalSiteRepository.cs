@@ -103,5 +103,48 @@ namespace WVParksCapstone.Repositories
                 }
             }
         }
+
+        public List<HistoricalSite> GetHistoricalSiteByParkId(int id)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                           SELECT h.Id AS HistoricalSiteId, h.Name, h.ParkId, h.ImageUrl, h.Description, 
+                            p.Name AS ParkName
+                            FROM HistoricalSite h
+                            LEFT JOIN Park p ON h.ParkId = p.id
+                           WHERE h.ParkId = @Id";
+
+                    DbUtils.AddParameter(cmd, "@Id", id);
+
+                    var reader = cmd.ExecuteReader();
+
+                    var historicalSite = new List<HistoricalSite>();
+                    while (reader.Read())
+                    {
+                        historicalSite.Add(new HistoricalSite()
+                        {
+                            Id = DbUtils.GetInt(reader, "HistoricalSiteId"),
+                            Name = DbUtils.GetString(reader, "Name"),
+                            ParkId = DbUtils.GetInt(reader, "ParkId"),
+                            ImageUrl = DbUtils.GetString(reader, "ImageUrl"),
+                            Description = DbUtils.GetString(reader, "Description"),
+                            Park = new Park()
+                            {
+                                Id = DbUtils.GetInt(reader, "ParkId"),
+                                Name = DbUtils.GetString(reader, "ParkName"),
+                            }
+                        });
+                    }
+
+                    reader.Close();
+
+                    return historicalSite;
+                }
+            }
+        }
     }
 }

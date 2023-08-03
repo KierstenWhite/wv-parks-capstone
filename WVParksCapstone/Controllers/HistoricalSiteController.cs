@@ -31,5 +31,16 @@ namespace WVParksCapstone.Controllers
             }
             return Ok(historicalSite);
         }
+
+        [HttpGet("GetHistoricalSiteByParkId{Id}")]
+        public IActionResult GetHistoricalSiteByParkId(int Id)
+        {
+            List<HistoricalSite> historicalSite = _historicalSiteRepository.GetHistoricalSiteByParkId(Id);
+            if (historicalSite == null)
+            {
+                return NotFound();
+            }
+            return Ok(historicalSite);
+        }
     }
 }
