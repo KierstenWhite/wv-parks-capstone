@@ -42,5 +42,16 @@ namespace WVParksCapstone.Controllers
             }
             return Ok(trail);
         }
+
+        [HttpGet("GetTrailByTrailDifficultyId{Id}")]
+        public IActionResult GetWaterfallByTrailDifficultyId(int Id)
+        {
+            List<Trail> trail = _trailRepository.GetTrailByTrailDifficultyId(Id);
+            if (trail == null)
+            {
+                return NotFound();
+            }
+            return Ok(trail);
+        }
     }
 }

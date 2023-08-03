@@ -58,5 +58,16 @@ namespace WVParksCapstone.Controllers
             _reviewRepository.Delete(id);
             return NoContent();
         }
+
+        [HttpGet("GetReviewByParkId{Id}")]
+        public IActionResult GetReviewByParkId(int Id)
+        {
+            List<Review> review = _reviewRepository.GetReviewByParkId(Id);
+            if (review == null)
+            {
+                return NotFound();
+            }
+            return Ok(review);
+        }
     }
 }

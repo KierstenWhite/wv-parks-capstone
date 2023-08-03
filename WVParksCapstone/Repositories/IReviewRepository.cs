@@ -9,5 +9,7 @@ namespace WVParksCapstone.Repositories
         List<Review> GetAll();
         Review GetById(int id);
         void Update(Review review);
+
+        List<Review> GetReviewByParkId(int id);
     }
 }
