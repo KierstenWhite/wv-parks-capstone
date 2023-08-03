@@ -31,5 +31,27 @@ namespace WVParksCapstone.Controllers
             }
             return Ok(activity);
         }
+
+        [HttpGet("GetActivityByParkId{Id}")]
+        public IActionResult GetActivityByParkId(int Id)
+        {
+            List<Activity> activity = _activityRepository.GetActivityByParkId(Id);
+            if (activity == null)
+            {
+                return NotFound();
+            }
+            return Ok(activity);
+        }
+
+        [HttpGet("GetActivityByActivityTypeId{Id}")]
+        public IActionResult GetActivityByActivityTypeId(int Id)
+        {
+            List<Activity> activity = _activityRepository.GetActivityByActivityTypeId(Id);
+            if (activity == null)
+            {
+                return NotFound();
+            }
+            return Ok(activity);
+        }
     }
 }
