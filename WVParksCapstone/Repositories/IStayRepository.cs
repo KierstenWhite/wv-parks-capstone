@@ -6,5 +6,6 @@ namespace WVParksCapstone.Repositories
     {
         List<Stay> GetAll();
         Stay GetById(int id);
+        List<Stay> GetStayByParkId(int id);
     }
 }

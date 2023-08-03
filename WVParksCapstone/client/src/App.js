@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Header from './Components/Header/Header';
 import { ApplicationViews } from './Components/ApplicationView';
 import { useEffect } from 'react';
-import Authorize from './Auth/Authorize';
+import Authorize from './Components/Auth/Authorize';
 
 
 function App() {

@@ -1,7 +1,7 @@
 import React, { useState} from "react";
 import { Form, FormGroup, Input, Button } from "semantic-ui-react";
 import { useNavigate } from "react-router-dom";
-import { register } from "../Managers/UserManager";
+import { register } from "../../Managers/UserManager";
 
 
 export default function Register({setIsLoggedIn}) {

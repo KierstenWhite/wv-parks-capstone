@@ -31,5 +31,16 @@ namespace WVParksCapstone.Controllers
             }
             return Ok(park);
         }
+
+        [HttpGet("GetParkByRegionId{Id}")]
+        public IActionResult GetParkByRegionId(int Id)
+        {
+            List<Park> park = _parkRepository.GetParkByRegionId(Id);
+            if (park == null)
+            {
+                return NotFound();
+            }
+            return Ok(park);
+        }
     }
 }

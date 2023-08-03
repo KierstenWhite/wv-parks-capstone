@@ -121,5 +121,57 @@ namespace WVParksCapstone.Repositories
                 }
             }
         }
+
+        public List<Stay> GetStayByParkId(int id)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                           SELECT s.Id AS StayId, s.Name, s.NumberOfSites, s.Description, s.ImageUrl, s.ParkId, s.StayTypeId,
+                            p.Name AS ParkName,
+                            st.Type AS StayTypeName
+                            FROM Stay s
+                            LEFT JOIN Park p ON s.ParkId = p.id
+                            LEFT JOIN StayType st ON s.StayTypeId = st.id
+                           WHERE s.ParkId = @Id";
+
+                    DbUtils.AddParameter(cmd, "@Id", id);
+
+                    var reader = cmd.ExecuteReader();
+
+                    var stay = new List<Stay>();
+                    while (reader.Read())
+                    {
+                        stay.Add(new Stay()
+                        {
+                            Id = DbUtils.GetInt(reader, "StayId"),
+                            Name = DbUtils.GetString(reader, "Name"),
+                            NumberOfSites = DbUtils.GetNullableInt(reader, "NumberOfSites"),
+                            Description = DbUtils.GetString(reader, "Description"),
+                            ImageUrl = DbUtils.GetString(reader, "ImageUrl"),
+                            ParkId = DbUtils.GetInt(reader, "ParkId"),
+                            StayTypeId = DbUtils.GetInt(reader, "StayTypeId"),
+                            Park = new Park()
+                            {
+                                Id = DbUtils.GetInt(reader, "ParkId"),
+                                Name = DbUtils.GetString(reader, "ParkName"),
+                            },
+                            StayType = new StayType()
+                            {
+                                Id = DbUtils.GetInt(reader, "StayTypeId"),
+                                Type = DbUtils.GetString(reader, "StayTypeName"),
+                            }
+                        });
+                    }
+
+                    reader.Close();
+
+                    return stay;
+                }
+            }
+        }
     }
 }

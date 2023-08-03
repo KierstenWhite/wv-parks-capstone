@@ -31,5 +31,17 @@ namespace WVParksCapstone.Controllers
             }
             return Ok(stay);
         }
+
+        [HttpGet("GetStayByParkId{Id}")]
+        public IActionResult GetStayByParkId(int Id)
+        {
+            List<Stay> stay = _stayRepository.GetStayByParkId(Id);
+            if (stay == null)
+            {
+                return NotFound();
+            }
+            return Ok(stay);
+        }
+
     }
 }
