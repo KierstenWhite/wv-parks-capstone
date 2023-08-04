@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Form, FormGroup } from "semantic-ui-react";
 import { useNavigate, Link } from "react-router-dom";
 import { login } from "../../Managers/UserManager";
+import 'semantic-ui-css/semantic.min.css';
 
 export default function Login({setIsLoggedIn}) {
   const navigate = useNavigate();

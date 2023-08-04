@@ -1,4 +1,4 @@
-const apiUrl = "https://localhost:5001";
+const apiUrl = "https://localhost:7060";
 
 export const getAllUserProfiles = () => {
   return fetch(`${apiUrl}/api/user`)
@@ -39,7 +39,7 @@ export const register = (userObject, password) => {
 };
 
 //GET User by Id
-export const getUser = (id) => { //http GET by id parameter 
-  return fetch(`${apiUrl}/api/user/${id}`)
+export const getUser = (parkId) => { //http GET by id parameter 
+  return fetch(`${apiUrl}/api/user/${parkId}`)
   .then((res) => res.json());
 }

@@ -2,6 +2,7 @@ import React, { useState} from "react";
 import { Form, FormGroup, Input, Button } from "semantic-ui-react";
 import { useNavigate } from "react-router-dom";
 import { register } from "../../Managers/UserManager";
+import 'semantic-ui-css/semantic.min.css';
 
 
 export default function Register({setIsLoggedIn}) {
@@ -54,7 +55,7 @@ export default function Register({setIsLoggedIn}) {
           <Form.Input id="confirmPassword" label="Confirm Password" type="password" onChange={e => setConfirmPassword(e.target.value)} />
         </FormGroup>
         <FormGroup>
-          <Button>Register</Button>
+          <Form.Button>Register</Form.Button>
         </FormGroup>
     </Form>
   );

@@ -4,6 +4,7 @@ import Header from './Components/Header/Header';
 import { ApplicationViews } from './Components/ApplicationView';
 import { useEffect } from 'react';
 import Authorize from './Components/Auth/Authorize';
+import 'semantic-ui-css/semantic.min.css';
 
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
 
     return (
         <Router>
-            {/* <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /> */}
+            <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
             {isLoggedIn ?
                 <ApplicationViews />
                 :
