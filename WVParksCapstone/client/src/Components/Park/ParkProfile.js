@@ -2,7 +2,7 @@ import 'semantic-ui-css/semantic.min.css';
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getParkById } from '../../Managers/ParkManager';
-import { Card, Image, Segment } from "semantic-ui-react"
+import { Card, Image, Segment, Header } from "semantic-ui-react"
 
 export const ParkProfile = () => {
     const { id } = useParams();
@@ -16,11 +16,22 @@ export const ParkProfile = () => {
     return (
         <>
         <Segment><Image
-          src={park?.imageUrl}
+          src={park.imageUrl}
           id="parkCardImage"
           alt="CardImage"
           size="large"
-        /></Segment>
-        <p>{park?.name} This is the park's profile page.</p></>
+        />
+        </Segment>
+        <Segment>
+            <Header size="huge">{park.name}</Header>
+            {park.address}<br></br>
+            {park.city}, {park.state} {park.zipcode}
+            {/*Star Average Will Go Here*/}
+        </Segment>
+        <Card.Group id="parkStays"></Card.Group>
+        <Card.Group id="parkTrails"></Card.Group>
+        <Card.Group id="parkHistoricalSites"></Card.Group>
+        <Card.Group id="parkActivities"></Card.Group>
+        </>
     )
 }

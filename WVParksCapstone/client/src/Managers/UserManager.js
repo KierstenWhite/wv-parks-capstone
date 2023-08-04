@@ -38,8 +38,19 @@ export const register = (userObject, password) => {
     });
 };
 
-//GET User by Id
-export const getUser = (parkId) => { //http GET by id parameter 
-  return fetch(`${apiUrl}/api/user/${parkId}`)
+//GET Current User
+export const getCurrentUser = (currentUserObject) => { //http GET by id parameter 
+  return fetch(`${apiUrl}/api/user?userId=${currentUserObject.id}`)
   .then((res) => res.json());
-}
+};
+
+// PUT Function - EditUserProfile.js
+export const getUserAndReplace = (user) => {
+  return fetch(`${apiUrl}/api/user/${user.id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(user),
+  }).then((res) => res.json());
+};
