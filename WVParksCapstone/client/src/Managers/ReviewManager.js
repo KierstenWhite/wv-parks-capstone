@@ -24,13 +24,13 @@ export const getReviewsByUserId = (id) => {
   }
 
 //Create New Review
-export const addReview = (review) => {
-    return fetch(apiUrl, {
+export const addReview = (reviewToSendToAPI) => {
+    return fetch(`${apiUrl}/api/review`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(review),
+      body: JSON.stringify(reviewToSendToAPI),
     });
   };
 

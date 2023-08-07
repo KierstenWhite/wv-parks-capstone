@@ -42,8 +42,8 @@ export const AddReviewForm = () => {
     });
   }, []);
 
-  const handleSaveButtonClick = (e) => {
-    e.preventDefault();
+  const handleSaveButtonClick = (evt) => {
+    evt.preventDefault();
 
     const reviewToSendToAPI = {
       userId: currentUserObject.id,
@@ -65,8 +65,8 @@ export const AddReviewForm = () => {
         <Header as="h2">Add a New Review</Header>
         <Form.Group>
           <Form.Select
-            selection // Enable selection mode
-            onChange={(event, data) => {
+            selection 
+            onChange={(evt, data) => {
               const copy = { ...review };
               copy.parkId = data.value;
               setReview(copy);
@@ -82,8 +82,8 @@ export const AddReviewForm = () => {
             required
           />
           <Form.Select
-            selection // Enable selection mode
-            onChange={(event, data) => {
+            selection
+            onChange={(evt, data) => {
               const copy = { ...review };
               copy.starsId = data.value;
               setReview(copy);
@@ -110,8 +110,33 @@ export const AddReviewForm = () => {
             placeholder="Our visit was amazing!"
             id="reviewTitle"
           />
-        
+           <Form.Field
+            control={Input}
+            onChange={(evt) => {
+              const copy = { ...review };
+              copy.imageUrl = evt.target.value;
+              setReview(copy);
+            }}
+            label="Photo Link"
+            htmlFor="imageUrl"
+            placeholder="Photo Link"
+            id="imageUrl"
+          />
+          <Form.Field
+            control={Input}
+            onChange={(evt) => {
+              const copy = { ...review };
+              copy.dateOfVisit = evt.target.value;
+              setReview(copy);
+            }}
+            label="Date of Visit"
+            type="date"
+            htmlFor="dateOfVisit"
+            id="dateOfVisit"
+          />
         </Form.Group>
+        <Button onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
+                  id="button">Submit Review</Button>
       </Form>
     </>
   );
