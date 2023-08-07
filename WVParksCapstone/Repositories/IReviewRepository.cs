@@ -11,5 +11,6 @@ namespace WVParksCapstone.Repositories
         void Update(Review review);
 
         List<Review> GetReviewByParkId(int id);
+        List<Review> GetReviewByUserId(int id);
     }
 }

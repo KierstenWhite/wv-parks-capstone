@@ -55,7 +55,16 @@ export default function Header({isLoggedIn, setIsLoggedIn}) {
             }
             {!isLoggedIn &&
               <>
+              <Menu.Item>
+                <Link tag={RRNavLink} to="/">Home</Link>
+              </Menu.Item>
+              <Menu.Item>
+                <Link tag={RRNavLink} to="/parks">Parks</Link>
+              </Menu.Item>
                 <Menu.Item>
+                <Menu.Item>
+                <Link tag={RRNavLink} to="/about">About</Link>
+              </Menu.Item>
                   <Link tag={RRNavLink} to="/login">Login</Link>
                 </Menu.Item>
                 <Menu.Item>

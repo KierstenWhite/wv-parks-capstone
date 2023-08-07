@@ -6,6 +6,7 @@ import Register from "./Auth/Register";
 import { UserProfile } from "./User/UserProfile";
 import { Park } from "./Park/Park";
 import { ParkProfile } from "./Park/ParkProfile";
+import { AddReviewForm } from "./Review/AddReviewForm";
 
 export const ApplicationViews = () => {
 //   const localUser = localStorage.getItem("userProfile")
@@ -19,6 +20,7 @@ export const ApplicationViews = () => {
         <Route path="/myprofile" element={<UserProfile />} />
         <Route path="/parks" element={<Park />} />
         <Route path="/park/:id" element={<ParkProfile />} />
+        <Route path="/addareview" element={<AddReviewForm />} />
       </Routes>
     );
 }
