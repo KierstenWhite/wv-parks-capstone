@@ -1,25 +1,18 @@
+import 'semantic-ui-css/semantic.min.css';
 import React, { useState } from 'react';
 import { Link, NavLink as RRNavLink } from "react-router-dom";
 import { logout } from '../../Managers/UserManager';
-import 'semantic-ui-css/semantic.min.css';
 import { Dropdown, Menu } from 'semantic-ui-react';
 import "./Header.css"
 
 
 export default function Header({isLoggedIn, setIsLoggedIn}) {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <div>
-      <Menu pointing secondary>
-        {/* <NavbarBrand tag={RRNavLink} to="/">Tabloid</NavbarBrand> */}
-        {/* <NavbarToggler onClick={toggle} /> */}
-        {/* <Collapse isOpen={isOpen} navbar> */}
-          
-            { /* When isLoggedIn === true, we will render the Home link */ }
+    <div class="ui top fixed menu">
+      <Menu secondary id="navbar">
             {isLoggedIn &&
-             <div>
+              <>
               <Menu.Item>
                 <Link tag={RRNavLink} to="/">Home</Link>
               </Menu.Item>
@@ -38,10 +31,8 @@ export default function Header({isLoggedIn, setIsLoggedIn}) {
               <Menu.Item position="right">
                 <Link tag={RRNavLink} to="/myprofile">Profile</Link>
               </Menu.Item>
-            </div>
+              </>
             }
-        
-          
             {isLoggedIn &&
               <>
                 <Menu.Item>
@@ -73,9 +64,6 @@ export default function Header({isLoggedIn, setIsLoggedIn}) {
               </>
             }
           </Menu>
-        
-        {/* </Collapse>
-      </Navbar> */}
     </div>
   );
 }

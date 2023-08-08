@@ -12,6 +12,7 @@ import { MyReviews } from "./Review/MyReviews";
 import { EditReviewForm } from "./Review/EditReviewForm";
 import { Waterfall } from "./Waterfall/Waterfall";
 import { Stay } from "./Stay/Stay";
+import { Trail } from "./Trail/Trail";
 
 
 export const ApplicationViews = () => {
@@ -32,6 +33,7 @@ export const ApplicationViews = () => {
         <Route path="/editmyreview/:reviewId" element={<EditReviewForm />} />
         <Route path="/waterfalls" element={<Waterfall />} />
         <Route path="/stays" element={ <Stay /> } />
+        <Route path="/trails" element={ <Trail />} />
       </Routes>
     );
 }
