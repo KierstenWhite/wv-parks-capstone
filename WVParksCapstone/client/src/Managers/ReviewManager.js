@@ -37,7 +37,7 @@ export const addReview = (reviewToSendToAPI) => {
 
 //Edit Review
 export const editReview = (review) => {
-    return fetch(`${apiUrl}/${review.id}`, {
+    return fetch(`${apiUrl}/api/review/${review.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -48,7 +48,7 @@ export const editReview = (review) => {
 
 //Delete Review
 export const DeleteReview = (Id) => {
-    return fetch(`${apiUrl}/${Id}`, {
+    return fetch(`${apiUrl}/api/review/${Id}`, {
       method: "DELETE",
     }).then((response) => response.json());
   };

@@ -9,6 +9,9 @@ import { ParkProfile } from "./Park/ParkProfile";
 import { AddReviewForm } from "./Review/AddReviewForm";
 import { Review } from "./Review/Review";
 import { MyReviews } from "./Review/MyReviews";
+import { EditReviewForm } from "./Review/EditReviewForm";
+import { Waterfall } from "./Waterfall/Waterfall";
+import { Stay } from "./Stay/Stay";
 
 
 export const ApplicationViews = () => {
@@ -26,6 +29,9 @@ export const ApplicationViews = () => {
         <Route path="/addareview" element={<AddReviewForm />} />
         <Route path="/allreviews" element={<Review />} />
         <Route path="/myreviews" element={<MyReviews />} />
+        <Route path="/editmyreview/:reviewId" element={<EditReviewForm />} />
+        <Route path="/waterfalls" element={<Waterfall />} />
+        <Route path="/stays" element={ <Stay /> } />
       </Routes>
     );
 }

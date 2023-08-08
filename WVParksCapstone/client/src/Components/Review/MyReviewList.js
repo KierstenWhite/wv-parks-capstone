@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import 'semantic-ui-css/semantic.min.css';
 import { Button, Card, Image } from "semantic-ui-react";
 
@@ -33,8 +34,7 @@ export const MyReviewsList = ({ review, currentUser }) => {
           <Card.Description id="reviewCardDescription">
             {review.reviewTitle}
           </Card.Description>
-          <Button>Edit Review</Button>
-          <Button>Delete Review</Button>
+          <Link to={`/editmyreview/${review?.id}`}><Button>Edit Review</Button></Link>
         </Card.Content>
       </Card>
     </>
