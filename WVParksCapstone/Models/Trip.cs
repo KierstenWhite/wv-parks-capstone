@@ -13,6 +13,14 @@ namespace WVParksCapstone.Models
         public int HistoricalSiteId { get; set; }
         public int ActivityId { get; set; }
         public int WaterfallId { get; set; }
+        public User? User { get; set; }
+        public Park? Park { get; set; }
+
+        public Stay? Stay { get; set; }
+        public Trail? Trail { get; set; }
+        public HistoricalSite? HistoricalSite { get; set;}
+        public Activity? Activity { get; set; }
+        public Waterfall? Waterfall { get; set; }
 
         //Probably need to add lists here rather than just new 
     }

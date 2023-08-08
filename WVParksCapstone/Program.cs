@@ -32,6 +32,7 @@ namespace WVParksCapstone
             builder.Services.AddTransient<ITrailRepository, TrailRepository>();
             builder.Services.AddTransient<IWaterfallRepository, WaterfallRepository>();
             builder.Services.AddTransient<IReviewRepository, ReviewRepository>();
+            builder.Services.AddTransient<ITripRepository, TripRepository>();
 
             var app = builder.Build();
 
