@@ -336,5 +336,7 @@ namespace WVParksCapstone.Repositories
                 }
             }
         }
+
+        //Make GetTripByUserId for edits and deletes
     }
 }

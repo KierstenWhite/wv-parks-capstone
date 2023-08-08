@@ -15,6 +15,7 @@ import { Stay } from "./Stay/Stay";
 import { Trail } from "./Trail/Trail";
 import { HistoricalSite } from "./HistoricalSite/HistoricalSite";
 import { Activities } from "./Activity/Activity";
+import { AddTripForm } from "./Trip/AddTripForm";
 
 
 export const ApplicationViews = () => {
@@ -38,6 +39,7 @@ export const ApplicationViews = () => {
         <Route path="/trails" element={ <Trail />} />
         <Route path="/historicalsites" element={ <HistoricalSite />} />
         <Route path="/activities" element={<Activities /> } />
+        <Route path="/createatrip" element={< AddTripForm />} />
       </Routes>
     );
 }
