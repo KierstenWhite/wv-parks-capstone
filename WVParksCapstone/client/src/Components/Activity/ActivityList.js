@@ -3,31 +3,30 @@ import { Link } from "react-router-dom";
 // import "./Park.css";
 import { Button, Card, Image } from "semantic-ui-react";
 
-export const StayList = ({ stay, currentUser }) => {
+export const ActivityList = ({ activity, currentUser }) => {
   return (
     <>
       <Card
         id="individualStayCard"
-        key={`Stay=${stay.id}`}
+        key={`Activity==${activity.id}`}
         color="green"
       >
         <Image
-          src={stay.imageUrl}
-          id="stayCardImage"
+          src={activity.imageUrl}
+          id="activityCardImage"
           alt="CardImage"
         />
-        <Card.Content id="stayCardContent">
-          <Card.Header id="stayCardHeader">
-            {stay.name}
+        <Card.Content id="activityCardContent">
+          <Card.Header id="activityCardHeader">
+            {activity.name}
           </Card.Header>
           <Card.Description>
-          Park: {stay.park.name}
-          Stay Type: {stay.stayType.type}
-          Number of Sites/Rooms: {stay.numberOfSites}
+          Park: {activity.park.name}
+          Activity Type: {activity.activityType.name}
           </Card.Description>
           <br></br>
-          <Card.Description id="stayCardDescription">
-            {stay.description}
+          <Card.Description id="activityCardDescription">
+            {activity.description}
           </Card.Description>
         </Card.Content>
       </Card>

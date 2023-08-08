@@ -14,6 +14,7 @@ import { Waterfall } from "./Waterfall/Waterfall";
 import { Stay } from "./Stay/Stay";
 import { Trail } from "./Trail/Trail";
 import { HistoricalSite } from "./HistoricalSite/HistoricalSite";
+import { Activities } from "./Activity/Activity";
 
 
 export const ApplicationViews = () => {
@@ -36,6 +37,7 @@ export const ApplicationViews = () => {
         <Route path="/stays" element={ <Stay /> } />
         <Route path="/trails" element={ <Trail />} />
         <Route path="/historicalsites" element={ <HistoricalSite />} />
+        <Route path="/activities" element={<Activities /> } />
       </Routes>
     );
 }
