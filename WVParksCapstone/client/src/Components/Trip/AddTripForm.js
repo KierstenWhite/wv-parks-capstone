@@ -99,7 +99,7 @@ export const AddTripForm = () => {
         <>
             <Form>
         <Header as="h2">Create a New Trip</Header>
-        <Form.TextArea>To create a trip, you can select one of each type of item.</Form.TextArea>
+        {/* <Form.TextArea>To create a trip, you can select one of each type of item.</Form.TextArea> */}
         <Form.Group>
         <Form.Field
             control={Input}

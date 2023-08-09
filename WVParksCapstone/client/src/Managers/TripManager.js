@@ -10,19 +10,7 @@ export const getTripById = (id) => { //http GET by id parameter
     return fetch(`${apiUrl}/api/trip/${id}`)
     .then((res) => res.json());
   }
-
-// //Get Review By ParkId
-// export const getReviewsByParkId = (id) => {
-//     return fetch(`${apiUrl}/api/review/GetReviewByParkId${id}`)
-//     .then((res) => res.json())
-//   }
-
-//   //Get Review By ParkId
-// export const getReviewsByUserId = (id) => {
-//     return fetch(`${apiUrl}/api/review/GetReviewByUserId${id}`)
-//     .then((res) => res.json())
-//   }
-
+  
 //Create New Review
 export const addTrip = (tripToSendToAPI) => {
     return fetch(`${apiUrl}/api/trip`, {
@@ -47,8 +35,8 @@ export const editMyTrip = (tripObject) => {
   };
 
 //Delete Review
-export const deleteTrip = (Id) => {
-    return fetch(`${apiUrl}/api/trip/${Id}`, {
+export const deleteTrip = (tripId) => {
+    return fetch(`${apiUrl}/api/trip/${tripId}`, {
       method: "DELETE",
     }).then((response) => response.json());
   };

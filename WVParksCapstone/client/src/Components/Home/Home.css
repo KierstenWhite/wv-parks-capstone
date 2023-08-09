@@ -1,0 +1,71 @@
+#homeImageBanner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: -10px;
+}
+
+#bannerImage {
+    height: 425px;
+    width: 800px;
+    margin: -20px;
+}
+
+#homePageOverlay {
+    position: absolute;
+    top: 60%;
+    left: 48.7%;
+    transform: translate(-50%, -50%);
+    width: 38%;
+    height: 50%;
+    background-color: rgba(236, 236, 236, 0.79); /* White with 70% transparency */
+    z-index: 1; /* Ensure the overlay is below the button */
+    border-radius: 35px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#overlayButton {
+    position: absolute;
+    top: 75%; /* Adjust this value to vertically center the button */
+    left: 48.7%; /* Adjust this value to horizontally center the button */
+    transform: translate(-50%, -50%);
+    z-index: 3; /* Ensure the button appears above the images */
+    background-color: #E4A089;
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#overlayButton:hover {
+    background-color: #6C7453;
+}
+
+#logo {
+    top: 50%;
+    left: 34%;
+    height: 100px;
+}
+
+#stateParksLogoBanner {
+    margin: -11px;
+    border: none;
+}
+
+#exploreText {
+    position: absolute;
+    top: 46%;
+    left: 49%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    font-size: 39px;
+    font-family: 'Poppins', sans-serif;
+}
+
+#westvirginiatext {
+    position: absolute;
+    top: 58%;
+    left: 48.7%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    font-family: 'Poppins', sans-serif;
+    font-size: 60px;
+}

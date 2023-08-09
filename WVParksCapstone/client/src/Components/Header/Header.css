@@ -1,4 +1,13 @@
-/* #navbar {
-    height: 80px;
-    align-items: center;
-} */
+#navbar {
+    background-color: #E4A089;
+    font-family: 'Poppins', sans-serif;
+    font-size: large;
+}
+
+#menuItem {
+    color: white;
+}
+
+#navbar:hover {
+    color: red;
+}

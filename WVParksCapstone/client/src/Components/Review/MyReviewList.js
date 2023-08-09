@@ -19,7 +19,7 @@ export const MyReviewsList = ({ review, currentUser }) => {
     <>
       <Card
         id="individualParkCard"
-        key={`review--${review.id}`}
+        key={`review--${review?.id}`}
         color="green"
       >
         <Card.Header id="reviewCardHeader" as="h3">

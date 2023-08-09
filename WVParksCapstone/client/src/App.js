@@ -7,6 +7,7 @@ import Authorize from './Components/Auth/Authorize';
 import 'semantic-ui-css/semantic.min.css';
 
 
+
 function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(true);
 

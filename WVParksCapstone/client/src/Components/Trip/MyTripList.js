@@ -1,12 +1,15 @@
 
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import 'semantic-ui-css/semantic.min.css';
 import { Accordion, Button, Card, Icon, Image } from "semantic-ui-react";
+import { deleteTrip } from '../../Managers/TripManager';
 
 export const MyTripList = ({ trip, currentUser }) => {
 
   const [activeIndex, setActiveIndex] = useState(0);
+  const {tripId } = useParams();
+  const navigate = useNavigate();
 
   const handleClick = (e, titleProps) => {
     const { index } = titleProps;
@@ -15,7 +18,21 @@ export const MyTripList = ({ trip, currentUser }) => {
     setActiveIndex(newIndex);
   }
 
-  return trip.userId === currentUser.id ? (
+  const deleteButton = () => {
+    return (
+      <Button
+        onClick={() => {
+          deleteTrip(tripId).then(() => {
+            navigate("/mytrips");
+          });
+        }}
+      >
+        Delete Trip
+      </Button>
+    );
+  };
+
+  return trip.userId === currentUser?.id ? (
     <>
       <Card
         id="individualTripCard"
@@ -107,7 +124,7 @@ export const MyTripList = ({ trip, currentUser }) => {
           
         
           <Link to={`/editmytrip/${trip?.id}`}><Button>EDIT TRIP</Button></Link>
-          <Button>Delete Trip</Button>
+          {deleteButton()}
         </Card.Content>
       </Card>
     </>
