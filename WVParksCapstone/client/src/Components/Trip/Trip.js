@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { MyTripList } from './MyTripList';
 import { getAllTrips } from '../../Managers/TripManager';
 import { Card, Header } from "semantic-ui-react";
+import "./Trip.css"
 
 export const Trip = () => {
   const [trips, setTrips] = useState([]);
@@ -15,7 +16,7 @@ export const Trip = () => {
     });
   }, []);
   return (
-    <>
+    <div id="MyTripListContainer">
       <Header as="h2" id="tripListHeader">
        My Trips
       </Header>
@@ -28,6 +29,6 @@ export const Trip = () => {
           />
         ))}
       </Card.Group>
-    </>
+    </div>
   );
 };
