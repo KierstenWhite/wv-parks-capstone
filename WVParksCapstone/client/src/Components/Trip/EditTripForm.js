@@ -19,16 +19,7 @@ import {
 } from "semantic-ui-react";
 
 export const EditTripForm = () => {
-    const[trip, updateTrip] = useState({
-        userId: "",
-        tripName: "",
-        parkId: "",
-        stayId: "",
-        trailId: "",
-        historicalSiteId: "",
-        activityId: "",
-        waterfallId: "",
-    });
+ 
     const [park, setParks] = useState([]);
     const [stay, setStays] = useState([]);
     const [historicalSite, setHistoricalSites] = useState([]);
@@ -40,7 +31,16 @@ export const EditTripForm = () => {
     const navigate = useNavigate();
     const localCurrentUser = localStorage.getItem("userProfile");
     const currentUserObject = JSON.parse(localCurrentUser);
-
+    const[trip, updateTrip] = useState({
+      userId: currentUserObject.id,
+      tripName: "",
+      parkId: "",
+      stayId: "",
+      trailId: "",
+      historicalSiteId: "",
+      activityId: "",
+      waterfallId: ""
+  });
     useEffect(() => {
         getAllParks().then((parkArray) => {
           setParks(parkArray);

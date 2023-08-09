@@ -3,11 +3,12 @@
     flex-direction: row;
     align-items: center;
     margin: -10px;
+    overflow: hidden; /* Hide overflowing content */
 }
 
 #bannerImage {
-    height: 425px;
-    width: 800px;
+    height: 500px;
+    width: 990px;
     margin: -20px;
 }
 

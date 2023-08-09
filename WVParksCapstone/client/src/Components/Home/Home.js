@@ -1,8 +1,11 @@
 import 'semantic-ui-css/semantic.min.css';
 import { Segment, Image, Button } from 'semantic-ui-react';
 import "./Home.css";
+import { Link } from 'react-router-dom';
 
 export const Home = () => {
+    
+
     return (
         <>
         <Segment id="stateParksLogoBanner">
@@ -15,7 +18,7 @@ export const Home = () => {
             <div id="homePageOverlay"></div>
             <p id="exploreText">EXPLORE WILD & WONDERFUL</p>
             <p id="westvirginiatext">WEST VIRGINIA</p>
-            <Button size="huge" id="overlayButton">PLAN YOUR TRIP</Button>
+            <Link to="/createatrip"><Button size="huge" id="overlayButton">PLAN YOUR TRIP</Button></Link>
         </Segment>
         </>
     )

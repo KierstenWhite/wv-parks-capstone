@@ -6,9 +6,10 @@ import { Card, Header } from "semantic-ui-react";
 
 export const MyReviews = () => {
   const [reviews, setReviews] = useState([]);
-  const localCurrentUser = localStorage.getItem("current_user");
+  const localCurrentUser = localStorage.getItem("userProfile");
   const currentUserObject = JSON.parse(localCurrentUser);
 
+  console.log(currentUserObject)
   useEffect(() => {
     getAllReviews().then((reviewArray) => {
         setReviews(reviewArray);

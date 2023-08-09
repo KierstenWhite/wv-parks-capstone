@@ -1,0 +1,28 @@
+#loginContainer {
+    display: flex;
+    align-items: center;
+    width: 500px;
+    height: 500px;
+    top: 50%;
+    left: 34%;
+    background-color: #F3DCC3;
+    box-shadow: 0 4px 8px 0 rgba(128, 87, 87, 0.105), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-family: 'Poppins', sans-serif;
+}
+
+#loginForm {
+    left: 20%;
+}
+
+#buffer {
+    margin: -13px;
+    border: none;
+    box-shadow: none;
+}
+
+#loginbutton {
+    background-color: #E4A089;
+    color: white;
+    font-size: 17px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.097), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

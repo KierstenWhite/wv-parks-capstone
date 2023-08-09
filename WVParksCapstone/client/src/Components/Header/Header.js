@@ -91,7 +91,7 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
                 />
               </Dropdown.Menu>
             </Dropdown>
-            <Menu.Item
+            <Menu.Item position="right"
               as={RRNavLink}
               to="/myprofile"
               name="My Profile"
@@ -113,7 +113,7 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
               
           </>
         }
-        {!isLoggedIn && (
+        {!isLoggedIn && 
           <>
             <Menu.Item
               as={RRNavLink}
@@ -136,7 +136,7 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
             >
               About
             </Menu.Item>
-            <Menu.Item
+            <Menu.Item position="right"
               as={RRNavLink}
               to="/login"
               name="login"
@@ -147,7 +147,7 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
                   <Link tag={RRNavLink} to="/register">Register</Link>
                 </Menu.Item> */}
           </>
-        )}
+        }
       </Menu>
     </>
   );

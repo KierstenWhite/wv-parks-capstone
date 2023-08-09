@@ -40,7 +40,7 @@ export const register = (userObject, password) => {
 
 //GET Current User
 export const getCurrentUser = (currentUserObject) => { //http GET by id parameter 
-  return fetch(`${apiUrl}/api/user?userId=${currentUserObject.id}`)
+  return fetch(`${apiUrl}/api/user/${currentUserObject.id}`)
   .then((res) => res.json());
 };
 

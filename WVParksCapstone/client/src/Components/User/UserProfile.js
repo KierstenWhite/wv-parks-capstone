@@ -4,6 +4,7 @@ import { getUserAndReplace, getCurrentUser } from "../../Managers/UserManager";
 import 'semantic-ui-css/semantic.min.css';
 import { useNavigate } from "react-router-dom";
 import { Button, Card, Grid, Segment, GridRow, Image, Header, Form, Input } from "semantic-ui-react";
+import userEvent from "@testing-library/user-event";
 
 export const UserProfile = () => {
     const [user, editUser] = useState({
@@ -21,10 +22,9 @@ export const UserProfile = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        getCurrentUser(currentUserObject).then((data) => {
-            const userObject = data[0];
-            editUser(userObject);
-        });
+        getCurrentUser(currentUserObject).then(user => 
+            editUser(user)
+          )
     }, []);
 
     const handleSaveButtonClick = (e) => {
@@ -36,7 +36,7 @@ export const UserProfile = () => {
     };
 
     //10
-    return (<>
+    return user.id === currentUserObject.id ? (<>
     <Grid id="fullGrid">
        <GridRow>
             <Grid.Column width={5}>
@@ -135,5 +135,5 @@ export const UserProfile = () => {
             </Grid.Column>
         </GridRow> 
     </Grid>
-    </>)
+    </>) : (<></>)
 }

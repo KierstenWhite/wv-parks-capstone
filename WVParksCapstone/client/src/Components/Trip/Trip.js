@@ -7,7 +7,7 @@ import "./Trip.css"
 
 export const Trip = () => {
   const [trips, setTrips] = useState([]);
-  const localCurrentUser = localStorage.getItem("current_user");
+  const localCurrentUser = localStorage.getItem("userProfile");
   const currentUserObject = JSON.parse(localCurrentUser);
 
   useEffect(() => {

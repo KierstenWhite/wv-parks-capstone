@@ -3,6 +3,7 @@ import { Form, FormGroup, Input, Button } from "semantic-ui-react";
 import { useNavigate } from "react-router-dom";
 import { register } from "../../Managers/UserManager";
 import 'semantic-ui-css/semantic.min.css';
+import './Register.css'
 
 
 export default function Register({setIsLoggedIn}) {
@@ -31,27 +32,21 @@ export default function Register({setIsLoggedIn}) {
  };
 
   return (
-    <Form onSubmit={registerClick}>
+    <Form id="registerForm" size="large" onSubmit={registerClick}>
         
-        <FormGroup>
+        <FormGroup widths='equal'>
+        <Form.Input id="email" label="Email" onChange={e => setEmail(e.target.value)} />
           <Form.Input id="username" label="Username" onChange={e => setUsername(e.target.value)} />
-        </FormGroup>
-        <FormGroup>
           <Form.Input id="userPhoto" label="User Photo" onChange={e => setUserPhoto(e.target.value)} />
-        </FormGroup>
+          </FormGroup>
         <FormGroup>
           <Form.Checkbox id="isAdmin" label="Are you an admin?" onChange={e => setIsAdmin(e.target.value)} />
         </FormGroup>
-        <FormGroup>
-          <Form.Input id="bio" label="Bio" onChange={e => setBio(e.target.value)} />
+        <FormGroup widths='equal'>
+          <Form.TextArea id="bio" label="Bio" onChange={e => setBio(e.target.value)} />
         </FormGroup>
-        <FormGroup>
-          <Form.Input id="email" label="Email" onChange={e => setEmail(e.target.value)} />
-        </FormGroup>
-        <FormGroup>
+        <FormGroup widths='equal'>
           <Form.Input id="password" label="Create a Password" type="password" onChange={e => setPassword(e.target.value)} />
-        </FormGroup>
-        <FormGroup>
           <Form.Input id="confirmPassword" label="Confirm Password" type="password" onChange={e => setConfirmPassword(e.target.value)} />
         </FormGroup>
         <FormGroup>
