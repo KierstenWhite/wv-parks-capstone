@@ -9,7 +9,7 @@ import "./Header.css"
 export default function Header({isLoggedIn, setIsLoggedIn}) {
 
   return (
-    <div class="ui top fixed menu">
+    <div className="ui top fixed menu">
       <Menu secondary id="navbar">
             {isLoggedIn &&
               <>

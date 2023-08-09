@@ -36,13 +36,13 @@ export const addTrip = (tripToSendToAPI) => {
 
 
 //Edit Review
-export const editTrip = (trip) => {
-    return fetch(`${apiUrl}/api/trip/${trip.id}`, {
+export const editMyTrip = (tripObject) => {
+    return fetch(`${apiUrl}/api/trip/${tripObject.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(trip),
+      body: JSON.stringify(tripObject),
     });
   };
 
