@@ -18,19 +18,19 @@ export const MyTripList = ({ trip, currentUser }) => {
     setActiveIndex(newIndex);
   }
 
-  const deleteButton = () => {
-    return (
-      <Button
-        onClick={() => {
-          deleteTrip(tripId).then(() => {
-            navigate("/mytrips");
-          });
-        }}
-      >
-        Delete Trip
-      </Button>
-    );
-  };
+  // const deleteButton = () => {
+  //   return (
+  //     <Button
+  //       onClick={() => {
+  //         deleteTrip(tripId).then(() => {
+  //           navigate("/mytrips");
+  //         });
+  //       }}
+  //     >
+  //       Delete Trip
+  //     </Button>
+  //   );
+  // };
 
   return trip.userId === currentUser?.id ? (
     <>
@@ -124,7 +124,22 @@ export const MyTripList = ({ trip, currentUser }) => {
           
         
           <Link to={`/editmytrip/${trip?.id}`}><Button>EDIT TRIP</Button></Link>
-          {deleteButton()}
+          {/* {deleteButton()} */}
+          <Button
+    color="red"
+    onClick={() => {
+      deleteTrip(trip?.id)
+        .then(() => {
+          navigate('/')
+          // Add logic here to update the state and remove the deleted review from the list
+        })
+        .catch((error) => {
+          console.error('Error deleting review:', error);
+        });
+    }}
+  >
+    Delete
+  </Button>
         </Card.Content>
       </Card>
     </>

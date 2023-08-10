@@ -16,9 +16,8 @@ import { Trail } from "./Trail/Trail";
 import { HistoricalSite } from "./HistoricalSite/HistoricalSite";
 import { Activities } from "./Activity/Activity";
 import { AddTripForm } from "./Trip/AddTripForm";
-import { EditTripForm } from "./Trip/EditTripForm";
 import { Trip } from "./Trip/Trip";
-
+import { EditTripForm } from "./Trip/EditTripForm";
 
 export const ApplicationViews = () => {
 //   const localUser = localStorage.getItem("userProfile")
@@ -42,7 +41,7 @@ export const ApplicationViews = () => {
         <Route path="/historicalsites" element={ <HistoricalSite />} />
         <Route path="/activities" element={<Activities /> } />
         <Route path="/createatrip" element={< AddTripForm />} />
-        <Route path="/editmytrip/:tripId" element={<EditTripForm />} />
+        <Route path="/editmytrip/:tripId" element={<EditTripForm /> } />
         <Route path="/mytrips" element={<Trip /> }/>
       </Routes>
     );

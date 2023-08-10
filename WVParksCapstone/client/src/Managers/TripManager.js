@@ -38,5 +38,5 @@ export const editMyTrip = (tripObject) => {
 export const deleteTrip = (tripId) => {
     return fetch(`${apiUrl}/api/trip/${tripId}`, {
       method: "DELETE",
-    }).then((response) => response.json());
+    });
   };
