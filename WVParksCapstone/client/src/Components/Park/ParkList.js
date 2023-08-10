@@ -1,11 +1,12 @@
 import "semantic-ui-css/semantic.min.css";
 import { Link } from "react-router-dom";
-import { Button, Card, Image } from "semantic-ui-react";
+import { Button, Card, Image, Segment } from "semantic-ui-react";
+import './Park.css'
 
 export const ParkList = ({ park }) => {
   return (
     <>
-      <Card id="individualParkCard" key={`Park==${park.id}`} color="green">
+      <Card id="individualParkCard" key={`Park==${park.id}`} color="#6C7453">
         <Image src={park.imageUrl} id="parkCardImage" alt="CardImage" />
         <Card.Content id="parkCardContent">
           <Card.Header id="parkCardHeader">{park.name}</Card.Header>
@@ -14,10 +15,12 @@ export const ParkList = ({ park }) => {
             <br></br>
             {park.city}, {park.state} {park.zipcode}
           </Card.Description>
-          <Link to={`/park/${park.id}`}>
-            <Button id="parkCardProfileButton">Visit Park</Button>
-          </Link>
         </Card.Content>
+        <Card.Content extra>
+          <Link to={`/park/${park.id}`}>
+            <Button size='small' id="parkCardProfileButton">Visit Park</Button>
+          </Link>
+          </Card.Content>
       </Card>
     </>
   );

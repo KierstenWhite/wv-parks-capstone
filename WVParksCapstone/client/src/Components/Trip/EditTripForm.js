@@ -101,7 +101,7 @@ export const EditTripForm = () => {
       };
     
         editMyTrip(tripToSendToAPI).then(() => {
-          navigate("/");
+          navigate("/mytrips");
         });
       };
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate  } from "react-router-dom";
+import { Link, useNavigate  } from "react-router-dom";
 import "semantic-ui-css/semantic.min.css";
 import { Accordion, Button, Card, Icon, Image } from "semantic-ui-react";
 import { deleteTrip } from "../../Managers/TripManager";
@@ -112,7 +112,9 @@ export const MyTripList = ({ trip, currentUser }) => {
               {trip.waterfall.description}
             </Accordion.Content>
           </Accordion>
-
+          <Link to={`/editmytrip/${trip?.id}`}>
+            <Button>Edit</Button>
+          </Link>
           <Button
             color="red"
             onClick={() => {

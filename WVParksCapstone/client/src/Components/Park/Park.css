@@ -1,0 +1,50 @@
+#individualParkCard {
+font-family: 'Poppins', sans-serif;
+}
+
+#parkCardImage {
+    height: 200px;
+    width: 267px;
+    display: flex;
+    justify-content: center;
+    /* background-size: cover;
+    background-position: center; */
+}
+
+#parkCardHeader {
+    font-family: 'Poppins', sans-serif;
+}
+
+#parkCardDescription {
+    font-family: 'Poppins', sans-serif;
+}
+
+#parkCardProfileButton {
+    font-family: 'Poppins', sans-serif;
+    background-color: #6C7453;
+    color: white;
+}
+
+#parkCardProfileButton:hover {
+    background-color: #9da581;
+    color: black;
+}
+
+#parkCardGroup {
+    padding: 50px;
+}
+
+#bannerContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: -10px;
+    overflow: hidden;
+}
+
+#parkBannerImage {
+    /* height: 500px;
+    width: 990px; */
+    margin: -20px;
+}
+
