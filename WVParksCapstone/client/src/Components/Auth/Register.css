@@ -1,5 +1,19 @@
 #registerForm {
-    border: solid black;
+    margin: 40px;
     padding: 50px;
     width: 1000px;
+    left: 15%;
+    background-color: #F3DCC3;
+    border-radius: 35px;
+}
+
+#registerButton {
+    background-color: #E4A089;
+    color: white;
+    font-size: 17px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.097), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#registerButton:hover {
+    color: black;
 }

@@ -50,5 +50,5 @@ export const editReview = (review) => {
 export const DeleteReview = (Id) => {
     return fetch(`${apiUrl}/api/review/${Id}`, {
       method: "DELETE",
-    }).then((response) => response.json());
+    });
   };

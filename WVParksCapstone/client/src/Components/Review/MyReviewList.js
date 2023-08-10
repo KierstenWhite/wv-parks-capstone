@@ -1,8 +1,10 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import 'semantic-ui-css/semantic.min.css';
 import { Button, Card, Image } from "semantic-ui-react";
+import { DeleteReview } from '../../Managers/ReviewManager';
 
 export const MyReviewsList = ({ review, currentUser }) => {
+  const navigate = useNavigate();
   // Calculate the number of stars based on review.starType.value
   const numberOfStars = review.starType.value;
 
@@ -35,6 +37,21 @@ export const MyReviewsList = ({ review, currentUser }) => {
             {review.reviewTitle}
           </Card.Description>
           <Link to={`/editmyreview/${review?.id}`}><Button>Edit Review</Button></Link>
+          <Button
+    color="red"
+    onClick={() => {
+      DeleteReview(review.id)
+        .then(() => {
+          navigate('/myreviews')
+          // Add logic here to update the state and remove the deleted review from the list
+        })
+        .catch((error) => {
+          console.error('Error deleting review:', error);
+        });
+    }}
+  >
+    Delete Review
+  </Button>
         </Card.Content>
       </Card>
     </>
