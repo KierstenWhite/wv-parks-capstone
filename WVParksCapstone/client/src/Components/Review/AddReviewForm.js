@@ -6,12 +6,9 @@ import { getAllStarTypes } from "../../Managers/StarTypeManager";
 import "semantic-ui-css/semantic.min.css";
 import {
   Button,
-  Divider,
   Form,
   Header,
   Input,
-  Segment,
-  TextArea,
 } from "semantic-ui-react";
 
 export const AddReviewForm = () => {
@@ -55,7 +52,7 @@ export const AddReviewForm = () => {
     };
 
     return addReview(reviewToSendToAPI).then(() => {
-      navigate("/");
+      navigate("/myreviews");
     });
   };
 
@@ -65,7 +62,7 @@ export const AddReviewForm = () => {
         <Header as="h2">Add a New Review</Header>
         <Form.Group>
           <Form.Select
-            selection 
+            selection
             onChange={(evt, data) => {
               const copy = { ...review };
               copy.parkId = data.value;
@@ -98,7 +95,7 @@ export const AddReviewForm = () => {
             value={review.starsId}
             required
           />
-         <Form.Field
+          <Form.Field
             control={Input}
             onChange={(evt) => {
               const copy = { ...review };
@@ -110,7 +107,7 @@ export const AddReviewForm = () => {
             placeholder="Our visit was amazing!"
             id="reviewTitle"
           />
-           <Form.Field
+          <Form.Field
             control={Input}
             onChange={(evt) => {
               const copy = { ...review };
@@ -135,8 +132,12 @@ export const AddReviewForm = () => {
             id="dateOfVisit"
           />
         </Form.Group>
-        <Button onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
-                  id="button">Submit Review</Button>
+        <Button
+          onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
+          id="button"
+        >
+          Submit Review
+        </Button>
       </Form>
     </>
   );

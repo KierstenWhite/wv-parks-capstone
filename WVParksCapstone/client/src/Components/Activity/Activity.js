@@ -1,8 +1,8 @@
 //Parent for Parks
-import 'semantic-ui-css/semantic.min.css';
+import "semantic-ui-css/semantic.min.css";
 import { useState, useEffect } from "react";
-import { ActivityList } from './ActivityList';
-import { getAllActivities } from '../../Managers/ActivityManager';
+import { ActivityList } from "./ActivityList";
+import { getAllActivities } from "../../Managers/ActivityManager";
 import { Card, Header } from "semantic-ui-react";
 
 export const Activities = () => {
@@ -20,7 +20,7 @@ export const Activities = () => {
       <Header as="h2" id="activitiesListHeader">
         West Virginia State Parks - activitiess
       </Header>
-      <Card.Group id="activitiesCardGroup" itemsPerRow={6}>
+      <Card.Group id="activitiesCardGroup" itemsPerRow={4}>
         {activities.map((activity) => (
           <ActivityList
             key={`activity--${activity.id}`}

@@ -1,8 +1,7 @@
-//Parent for Parks
-import 'semantic-ui-css/semantic.min.css';
+import "semantic-ui-css/semantic.min.css";
 import { useState, useEffect } from "react";
-import { HistoricalSiteList } from './HistoricalSiteList';
-import { getAllHistoricalSites } from '../../Managers/HistoricalSite';
+import { HistoricalSiteList } from "./HistoricalSiteList";
+import { getAllHistoricalSites } from "../../Managers/HistoricalSite";
 import { Card, Header } from "semantic-ui-react";
 
 export const HistoricalSite = () => {
@@ -20,7 +19,7 @@ export const HistoricalSite = () => {
       <Header as="h2" id="historicalSiteListHeader">
         West Virginia State Parks - Historical Sites
       </Header>
-      <Card.Group id="historicalSiteCardGroup" itemsPerRow={6}>
+      <Card.Group id="historicalSiteCardGroup" itemsPerRow={4}>
         {historicalSites.map((historicalSite) => (
           <HistoricalSiteList
             key={`historicalSite--${historicalSite.id}`}

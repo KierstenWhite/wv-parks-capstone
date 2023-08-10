@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Form, FormGroup, Segment, Image } from "semantic-ui-react";
+import { Form, FormGroup, Segment } from "semantic-ui-react";
 import { useNavigate, Link } from "react-router-dom";
 import { login } from "../../Managers/UserManager";
-import 'semantic-ui-css/semantic.min.css';
-import './Login.css'
+import "semantic-ui-css/semantic.min.css";
+import "./Login.css";
 
-export default function Login({setIsLoggedIn}) {
+export default function Login({ setIsLoggedIn }) {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState();

@@ -6,12 +6,9 @@ import { getAllStarTypes } from "../../Managers/StarTypeManager";
 import "semantic-ui-css/semantic.min.css";
 import {
   Button,
-  Divider,
   Form,
   Header,
   Input,
-  Segment,
-  TextArea,
 } from "semantic-ui-react";
 
 export const EditReviewForm = () => {
@@ -45,7 +42,7 @@ export const EditReviewForm = () => {
 
   useEffect(() => {
     getReviewById(reviewId).then((data) => {
-        updateReview(data);
+      updateReview(data);
     });
   }, [reviewId]);
 
@@ -53,10 +50,9 @@ export const EditReviewForm = () => {
     evt.preventDefault();
 
     editReview(review).then(() => {
-        navigate(`/`);
+      navigate(`/`);
     });
-    };
-
+  };
 
   return (
     <>
@@ -64,7 +60,7 @@ export const EditReviewForm = () => {
         <Header as="h2">Add a New Review</Header>
         <Form.Group>
           <Form.Select
-            selection 
+            selection
             onChange={(evt, data) => {
               const copy = { ...review };
               copy.parkId = data.value;
@@ -97,7 +93,7 @@ export const EditReviewForm = () => {
             value={review.starsId}
             required
           />
-         <Form.Field
+          <Form.Field
             control={Input}
             onChange={(evt) => {
               const copy = { ...review };
@@ -110,7 +106,7 @@ export const EditReviewForm = () => {
             value={review.reviewTitle}
             id="reviewTitle"
           />
-           <Form.Field
+          <Form.Field
             control={Input}
             onChange={(evt) => {
               const copy = { ...review };
@@ -137,8 +133,12 @@ export const EditReviewForm = () => {
             id="dateOfVisit"
           />
         </Form.Group>
-        <Button onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
-                  id="button">Save</Button>
+        <Button
+          onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
+          id="button"
+        >
+          Save
+        </Button>
       </Form>
     </>
   );

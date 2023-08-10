@@ -20,7 +20,7 @@ export const Trip = () => {
       <Header as="h2" id="tripListHeader">
        My Trips
       </Header>
-      <Card.Group id="tripCardGroup" itemsPerRow={4}>
+      <Card.Group id="tripCardGroup" itemsPerRow={3}>
         {trips.map((trip) => (
           <MyTripList
             key={`trip--${trip.id}`}

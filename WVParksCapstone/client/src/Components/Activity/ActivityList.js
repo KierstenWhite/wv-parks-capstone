@@ -1,9 +1,7 @@
-import 'semantic-ui-css/semantic.min.css';
-import { Link } from "react-router-dom";
-// import "./Park.css";
-import { Button, Card, Image } from "semantic-ui-react";
+import "semantic-ui-css/semantic.min.css";
+import { Card, Image } from "semantic-ui-react";
 
-export const ActivityList = ({ activity, currentUser }) => {
+export const ActivityList = ({ activity }) => {
   return (
     <>
       <Card
@@ -11,18 +9,12 @@ export const ActivityList = ({ activity, currentUser }) => {
         key={`Activity==${activity.id}`}
         color="green"
       >
-        <Image
-          src={activity.imageUrl}
-          id="activityCardImage"
-          alt="CardImage"
-        />
+        <Image src={activity.imageUrl} id="activityCardImage" alt="CardImage" />
         <Card.Content id="activityCardContent">
-          <Card.Header id="activityCardHeader">
-            {activity.name}
-          </Card.Header>
+          <Card.Header id="activityCardHeader">{activity.name}</Card.Header>
           <Card.Description>
-          Park: {activity.park.name}
-          Activity Type: {activity.activityType.name}
+            Park: {activity.park.name}
+            Activity Type: {activity.activityType.name}
           </Card.Description>
           <br></br>
           <Card.Description id="activityCardDescription">
@@ -31,5 +23,5 @@ export const ActivityList = ({ activity, currentUser }) => {
         </Card.Content>
       </Card>
     </>
-  )
+  );
 };

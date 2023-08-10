@@ -3,7 +3,8 @@
     flex-direction: row;
     align-items: center;
     margin: -10px;
-    overflow: hidden; /* Hide overflowing content */
+    overflow: hidden;
+    /* Hide overflowing content */
 }
 
 #bannerImage {
@@ -19,18 +20,23 @@
     transform: translate(-50%, -50%);
     width: 38%;
     height: 50%;
-    background-color: rgba(236, 236, 236, 0.79); /* White with 70% transparency */
-    z-index: 1; /* Ensure the overlay is below the button */
+    background-color: rgba(236, 236, 236, 0.79);
+    /* White with 70% transparency */
+    z-index: 1;
+    /* Ensure the overlay is below the button */
     border-radius: 35px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #overlayButton {
     position: absolute;
-    top: 75%; /* Adjust this value to vertically center the button */
-    left: 48.7%; /* Adjust this value to horizontally center the button */
+    top: 75%;
+    /* Adjust this value to vertically center the button */
+    left: 48.7%;
+    /* Adjust this value to horizontally center the button */
     transform: translate(-50%, -50%);
-    z-index: 3; /* Ensure the button appears above the images */
+    z-index: 3;
+    /* Ensure the button appears above the images */
     background-color: #E4A089;
     color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);

@@ -1,3 +1,37 @@
 #MyTripListContainer {
     padding: 50px;
 }
+
+#polaroid {
+    /* width: 80%; */
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 25px;
+    border: solid white 5px;
+}
+
+#polaroidContainer {
+    /* display: flex;
+    justify-content: center;
+    padding: -10px; */
+    /* width: 100%; */
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+}
+
+#individualTripCard {
+    font-family: 'Poppins', sans-serif;
+    background-color: #F3DCC3;
+}
+
+#tripCardHeader {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    font-size: 30px;
+}
+
+/* font-family: 'Poppins', sans-serif; */

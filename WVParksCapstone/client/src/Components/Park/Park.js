@@ -1,7 +1,7 @@
 //Parent for Parks
-import 'semantic-ui-css/semantic.min.css';
+import "semantic-ui-css/semantic.min.css";
 import { useState, useEffect } from "react";
-import { ParkList } from './ParkList';
+import { ParkList } from "./ParkList";
 import { getAllParks } from "../../Managers/ParkManager";
 import { Card, Header } from "semantic-ui-react";
 

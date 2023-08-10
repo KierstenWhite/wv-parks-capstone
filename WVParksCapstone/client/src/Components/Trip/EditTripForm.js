@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getTripById, editMyTrip } from "../../Managers/TripManager";
@@ -32,6 +33,7 @@ export const EditTripForm = () => {
     const localCurrentUser = localStorage.getItem("userProfile");
     const currentUserObject = JSON.parse(localCurrentUser);
     const[trip, updateTrip] = useState({
+      id: tripId,
       userId: currentUserObject.id,
       tripName: "",
       parkId: "",
@@ -85,8 +87,20 @@ export const EditTripForm = () => {
 
       const handleSaveButtonClick = (evt) => {
         evt.preventDefault();
+
+        const tripToSendToAPI = {
+          id: tripId,
+          userId: currentUserObject.id,
+          tripName: trip.tripName,
+          parkId: trip.parkId,
+          stayId: trip.stayId,
+          trailId: trip.trailId,
+          historicalSiteId: trip.historicalSiteId,
+          activityId: trip.activityId,
+          waterfallId: trip.waterfallId,
+      };
     
-        editMyTrip(trip).then(() => {
+        editMyTrip(tripToSendToAPI).then(() => {
           navigate("/");
         });
       };

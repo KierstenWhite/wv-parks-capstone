@@ -1,8 +1,8 @@
 //Parent for Reviews
-import 'semantic-ui-css/semantic.min.css';
+import "semantic-ui-css/semantic.min.css";
 import { useState, useEffect } from "react";
-import { ReviewList } from './ReviewList';
-import { getAllReviews } from '../../Managers/ReviewManager';
+import { ReviewList } from "./ReviewList";
+import { getAllReviews } from "../../Managers/ReviewManager";
 import { Card, Header } from "semantic-ui-react";
 
 export const Review = () => {
@@ -12,7 +12,7 @@ export const Review = () => {
 
   useEffect(() => {
     getAllReviews().then((reviewArray) => {
-        setReviews(reviewArray);
+      setReviews(reviewArray);
     });
   }, []);
   return (

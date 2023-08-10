@@ -1,26 +1,20 @@
 import "semantic-ui-css/semantic.min.css";
 import React, { useState } from "react";
-import { Link, NavLink as RRNavLink } from "react-router-dom";
+import { NavLink as RRNavLink } from "react-router-dom";
 import { logout } from "../../Managers/UserManager";
 import { Menu, Dropdown } from "semantic-ui-react";
 import "./Header.css";
 
 export default function Header({ isLoggedIn, setIsLoggedIn }) {
   // const [activeItem, setActiveItem] = useState("home"); // Use state hook
-
-  // const handleItemClick = (e, { name }) => setActiveItem(name); // Update active item
+ // const handleItemClick = (e, { name }) => setActiveItem(name); // Update active item
 
   return (
     <>
       <Menu secondary id="navbar">
-        {isLoggedIn && 
+        {isLoggedIn && (
           <>
-            <Menu.Item
-              as={RRNavLink}
-              to="/"
-              name="home"
-              id="menuItem"
-            >
+            <Menu.Item as={RRNavLink} to="/" name="home" id="menuItem">
               Home
             </Menu.Item>
             <Dropdown item text="Trips" id="menuItem">
@@ -91,7 +85,8 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
                 />
               </Dropdown.Menu>
             </Dropdown>
-            <Menu.Item position="right"
+            <Menu.Item
+              position="right"
               as={RRNavLink}
               to="/myprofile"
               name="My Profile"
@@ -99,55 +94,44 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
             >
               My Profile
             </Menu.Item>
-            </>
-        }
-        {isLoggedIn &&
-              <>
-                <Menu.Item>
-                  <a aria-current="page" className="nav-link"
-                    style={{ cursor: "pointer" }} onClick={() => {
-                      logout()
-                      setIsLoggedIn(false)
-                    }}>Logout</a>
-                </Menu.Item>
-              
           </>
-        }
-        {!isLoggedIn && 
+        )}
+        {isLoggedIn && (
           <>
-            <Menu.Item
-              as={RRNavLink}
-              to="/"
-              name="home"
-            >
+            <Menu.Item>
+              <a
+                aria-current="page"
+                className="nav-link"
+                style={{ cursor: "pointer" }}
+                onClick={() => {
+                  logout();
+                  setIsLoggedIn(false);
+                }}
+              >
+                Logout
+              </a>
+            </Menu.Item>
+          </>
+        )}
+        {!isLoggedIn && (
+          <>
+            <Menu.Item as={RRNavLink} to="/" name="home">
               Home
             </Menu.Item>
-            <Menu.Item
-              as={RRNavLink}
-              to="/parks"
-              name="parks"
-            >
+            <Menu.Item as={RRNavLink} to="/parks" name="parks">
               WV State Parks
             </Menu.Item>
-            <Menu.Item
-              as={RRNavLink}
-              to="/about"
-              name="about"
-            >
+            <Menu.Item as={RRNavLink} to="/about" name="about">
               About
             </Menu.Item>
-            <Menu.Item position="right"
-              as={RRNavLink}
-              to="/login"
-              name="login"
-            >
+            <Menu.Item position="right" as={RRNavLink} to="/login" name="login">
               Login
             </Menu.Item>
             {/* <Menu.Item>
                   <Link tag={RRNavLink} to="/register">Register</Link>
                 </Menu.Item> */}
           </>
-        }
+        )}
       </Menu>
     </>
   );

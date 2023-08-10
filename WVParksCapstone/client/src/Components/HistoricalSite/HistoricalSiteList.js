@@ -1,9 +1,7 @@
-import 'semantic-ui-css/semantic.min.css';
-import { Link } from "react-router-dom";
-// import "./Park.css";
-import { Button, Card, Image } from "semantic-ui-react";
+import "semantic-ui-css/semantic.min.css";
+import { Card, Image } from "semantic-ui-react";
 
-export const HistoricalSiteList = ({ historicalSite, currentUser }) => {
+export const HistoricalSiteList = ({ historicalSite }) => {
   return (
     <>
       <Card
@@ -20,9 +18,7 @@ export const HistoricalSiteList = ({ historicalSite, currentUser }) => {
           <Card.Header id="historicalSiteCardHeader">
             {historicalSite.name}
           </Card.Header>
-          <Card.Description>
-          Park: {historicalSite.park.name}
-          </Card.Description>
+          <Card.Description>Park: {historicalSite.park.name}</Card.Description>
           <br></br>
           <Card.Description id="historicalSiteCardDescription">
             {historicalSite.description}
@@ -30,5 +26,5 @@ export const HistoricalSiteList = ({ historicalSite, currentUser }) => {
         </Card.Content>
       </Card>
     </>
-  )
+  );
 };
