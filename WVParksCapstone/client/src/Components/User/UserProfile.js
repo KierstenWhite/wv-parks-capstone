@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { getUserAndReplace, getCurrentUser } from "../../Managers/UserManager";
 import 'semantic-ui-css/semantic.min.css';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button, Card, Grid, Segment, GridRow, Image, Header, Form, Input } from "semantic-ui-react";
 import userEvent from "@testing-library/user-event";
 
@@ -50,10 +50,10 @@ export const UserProfile = () => {
                                 <strong>Bio:</strong> {user.bio}
                             </Segment>
                             <Segment>
-                                <Button>Add a Review</Button>
-                                <Button>Plan Your Trip</Button>
-                                <Button>My Trips</Button>
-                                <Button>My Reviews</Button>
+                                <Link to='/addareview'><Button>Add a Review</Button></Link>
+                                <Link to='/createatrip'><Button>Plan Your Trip</Button></Link>
+                                <Link to='/mytrips'><Button>My Trips</Button></Link>
+                                <Link to='/myreviews'><Button>My Reviews</Button></Link>
                             </Segment>
                         </Card.Content>
                     </Card>

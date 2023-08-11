@@ -6,7 +6,7 @@ import './Park.css'
 export const ParkList = ({ park }) => {
   return (
     <>
-      <Card id="individualParkCard" key={`Park==${park.id}`} color="#6C7453">
+      <Card id="individualParkCard" key={`Park==${park.id}`} >
         <Image src={park.imageUrl} id="parkCardImage" alt="CardImage" />
         <Card.Content id="parkCardContent">
           <Card.Header id="parkCardHeader">{park.name}</Card.Header>

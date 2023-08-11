@@ -1,0 +1,59 @@
+#individualtrailCard {
+    font-family: 'Poppins', sans-serif;
+    }
+    
+    #trailCardImage {
+        height: 300px;
+        width: 300px;
+        display: flex;
+        justify-content: center;
+        /* background-size: cover;
+        background-position: center; */
+    }
+    
+    #trailCardHeader {
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    #trailCardDescription {
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    #trailCardProfileButton {
+        font-family: 'Poppins', sans-serif;
+        background-color: #6C7453;
+        color: white;
+    }
+    
+    #trailCardProfileButton:hover {
+        background-color: #9da581;
+        color: black;
+    }
+    
+    #trailCardGroup {
+        padding: 50px;
+    }
+    
+    #bannerContainer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: -20px;
+        overflow: hidden;
+        /* border: solid black; */
+    }
+    
+    #trailBannerImage {
+        height: 300px;
+        width: 1525px;
+        margin: -23px;
+    }
+    
+    #dropdownArrow, #descriptionDropdown {
+        color: #9da581;
+        font-size: 18px;
+    }
+
+    #trailCardDescription {
+        font-size: 15px;
+    }

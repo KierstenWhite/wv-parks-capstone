@@ -38,13 +38,14 @@ font-family: 'Poppins', sans-serif;
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin: -10px;
+    margin: -20px;
     overflow: hidden;
+    /* border: solid black; */
 }
 
 #parkBannerImage {
-    /* height: 500px;
-    width: 990px; */
-    margin: -20px;
+    height: 300px;
+    width: 1525px;
+    margin: -23px;
 }
 

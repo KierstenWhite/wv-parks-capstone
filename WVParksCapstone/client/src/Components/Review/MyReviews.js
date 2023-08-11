@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { MyReviewsList } from "./MyReviewList";
 import { getAllReviews } from "../../Managers/ReviewManager";
 import { Button, Card, Header } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 
 export const MyReviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -19,8 +20,8 @@ export const MyReviews = () => {
     <>
       <Header as="h2" id="reviewListHeader">
         My WV State Parks Reviews
-        <Button>Create a Trip</Button>
       </Header>
+      <Link to={`/addareview`}><Button>Add a Review</Button></Link>
       <Card.Group id="reviewCardGroup" itemsPerRow={4}>
         {reviews.map((review) => (
           <MyReviewsList

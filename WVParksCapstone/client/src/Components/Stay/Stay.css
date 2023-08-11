@@ -1,0 +1,59 @@
+#individualStayCard {
+    font-family: 'Poppins', sans-serif;
+    }
+    
+    #stayCardImage {
+        height: 200px;
+        width: 340px;
+        display: flex;
+        justify-content: center;
+        /* background-size: cover;
+        background-position: center; */
+    }
+    
+    #stayCardHeader {
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    #stayCardDescription {
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    #stayCardProfileButton {
+        font-family: 'Poppins', sans-serif;
+        background-color: #6C7453;
+        color: white;
+    }
+    
+    #stayCardProfileButton:hover {
+        background-color: #9da581;
+        color: black;
+    }
+    
+    #stayCardGroup {
+        padding: 50px;
+    }
+    
+    #bannerContainer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: -20px;
+        overflow: hidden;
+        /* border: solid black; */
+    }
+    
+    #stayBannerImage {
+        height: 300px;
+        width: 1525px;
+        margin: -23px;
+    }
+    
+    #dropdownArrow, #descriptionDropdown {
+        color: #9da581;
+        font-size: 18px;
+    }
+
+    #stayCardDescription {
+        font-size: 15px;
+    }

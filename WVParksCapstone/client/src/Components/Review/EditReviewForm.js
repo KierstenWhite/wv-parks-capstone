@@ -50,7 +50,7 @@ export const EditReviewForm = () => {
     evt.preventDefault();
 
     editReview(review).then(() => {
-      navigate(`/`);
+      navigate(`/myreviews`);
     });
   };
 

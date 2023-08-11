@@ -1,0 +1,59 @@
+#individualHistoricalSiteCard {
+    font-family: 'Poppins', sans-serif;
+    }
+    
+    #historicalSiteCardImage {
+        height: 200px;
+        width: 340px;
+        display: flex;
+        justify-content: center;
+        /* background-size: cover;
+        background-position: center; */
+    }
+    
+    #historicalSiteCardHeader {
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    #historicalSiteCardDescription {
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    #historicalSiteCardProfileButton {
+        font-family: 'Poppins', sans-serif;
+        background-color: #6C7453;
+        color: white;
+    }
+    
+    #historicalSiteCardProfileButton:hover {
+        background-color: #9da581;
+        color: black;
+    }
+    
+    #historicalSiteCardGroup {
+        padding: 50px;
+    }
+    
+    #bannerContainer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: -20px;
+        overflow: hidden;
+        /* border: solid black; */
+    }
+    
+    #historicalSiteBannerImage {
+        height: 300px;
+        width: 1525px;
+        margin: -23px;
+    }
+    
+    #dropdownArrow, #descriptionDropdown {
+        color: #9da581;
+        font-size: 18px;
+    }
+
+    #historicalSiteCardDescription {
+        font-size: 15px;
+    }

@@ -41,6 +41,7 @@ export const MyReviewsList = ({ review, currentUser }) => {
               DeleteReview(review.id)
                 .then(() => {
                   navigate("/myreviews");
+                  window.location.reload();
                 })
                 .catch((error) => {
                   console.error("Error deleting review:", error);

@@ -91,7 +91,7 @@ export const AddTripForm = () => {
         };
     
         return addTrip(tripToSendToAPI).then(() => {
-          navigate("/");
+          navigate("/mytrips");
         });
       };
 
