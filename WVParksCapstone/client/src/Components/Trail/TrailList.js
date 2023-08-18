@@ -30,7 +30,7 @@ export const TrailList = ({ trail, currentUser }) => {
             {trail.name}
           </Card.Header>
           <Card.Description>
-          <strong>Park:</strong> {trail.park.name}
+          <strong>Park:</strong> {trail.park.name} <br />
           <strong>Trail Difficulty:</strong> {trail.trailDifficulty.name}
           </Card.Description>
           {/* <br></br> */}

@@ -18,7 +18,7 @@ export const HistoricalSite = () => {
   return (
     <>
     <Segment id="bannerContainer">
-        <Image id= "parkBannerImage" src="https://64.media.tumblr.com/95cc49ae541ad1ef2fc2dd79ae2f4426/0f5f72f0a90ee3ae-f7/s2048x3072/336ca098220ae40c40f6c50b80354e5d7d9c84d2.pnj" />
+        <Image id= "parkBannerImage" src="https://cdn11.bigcommerce.com/s-db59p/images/stencil/1280x1280/products/25448/74924/WV_StatePark_12172020_03__10105.1670034715.jpg?c=2" />
       </Segment>
       <Header as="h2" id="historicalSiteListHeader">
       All WV State Parks Historical Sites

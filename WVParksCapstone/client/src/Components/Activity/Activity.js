@@ -18,7 +18,7 @@ export const Activities = () => {
   return (
     <>
       <Header as="h2" id="activitiesListHeader">
-        West Virginia State Parks - activitiess
+        All West Virginia State Parks Activities
       </Header>
       <Card.Group id="activitiesCardGroup" itemsPerRow={4}>
         {activities.map((activity) => (

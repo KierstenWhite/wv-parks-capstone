@@ -38,14 +38,27 @@ font-family: 'Poppins', sans-serif;
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     margin: -20px;
     overflow: hidden;
     /* border: solid black; */
 }
 
-#parkBannerImage {
+#parkBannerImage, #parkProfileCardImage {
+    display: block; /* Set display to block */
+    width: 1920px; /* Ensure the image doesn't exceed the container width */
     height: 300px;
-    width: 1525px;
-    margin: -23px;
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+    margin: -20px;
+}
+#addressSegment {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+}
+
+#parkListHeader {
+    margin-top: 70px;
+    margin-left: 45px;
+    font-size: 40px;
 }
 

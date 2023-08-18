@@ -57,3 +57,9 @@
     #stayCardDescription {
         font-size: 15px;
     }
+
+    #stayListHeader {
+        margin-top: 70px;
+    margin-left: 45px;
+    font-size: 40px;
+    }
