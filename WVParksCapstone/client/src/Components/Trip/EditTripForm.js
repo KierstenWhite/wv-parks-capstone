@@ -107,10 +107,10 @@ export const EditTripForm = () => {
 
       return (
         <>
-            <Form>
-        <Header as="h2">Create a New Trip</Header>
+            <Form id="createATripForm">
+        <Header id="h2" as="h2">Edit My Trip</Header>
         
-        <Form.Group>
+        <Form.Group widths="equal">
         <Form.Field
             control={Input}
             onChange={(evt) => {
@@ -124,6 +124,8 @@ export const EditTripForm = () => {
             value={trip.tripName}
             id="tripName"
           />
+          </Form.Group>
+          <Form.Group widths="equal">
           <Form.Select
             selection 
             onChange={(evt, data) => {
@@ -152,7 +154,7 @@ export const EditTripForm = () => {
             options={stay.map((s) => ({
               key: s.id,
               value: s.id,
-              text: s.name,
+              text: `${s.name} (${s.park.name})`,
             }))}
             placeholder="Select a Stay"
             value={trip.stayId}
@@ -169,12 +171,14 @@ export const EditTripForm = () => {
             options={activity.map((a) => ({
               key: a.id,
               value: a.id,
-              text: a.name,
+              text: `${a.name} (${a.park.name})`,
             }))}
             placeholder="Select an Activity"
             value={trip.activityId}
             required
           />
+           </Form.Group>
+          <Form.Group widths="equal">
           <Form.Select
             selection
             onChange={(evt, data) => {
@@ -186,7 +190,7 @@ export const EditTripForm = () => {
             options={historicalSite.map((hs) => ({
               key: hs.id,
               value: hs.id,
-              text: hs.name,
+              text: `${hs.name} (${hs.park.name})`,
             }))}
             placeholder="Select a Historical Site or Museum"
             value={trip.historicalSiteId}
@@ -203,7 +207,7 @@ export const EditTripForm = () => {
             options={trail.map((t) => ({
               key: t.id,
               value: t.id,
-              text: t.name,
+              text: `${t.name} (${t.park.name})`,
             }))}
             placeholder="Select a Stay"
             value={trip.trailId}

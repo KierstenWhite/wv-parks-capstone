@@ -2,21 +2,24 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin: -10px;
+    justify-content: center;
+    margin: -20px;
     overflow: hidden;
     /* Hide overflowing content */
 }
 
 #bannerImage {
+    display: block; /* Set display to block */
+    width: 1920px; /* Ensure the image doesn't exceed the container width */
     height: 500px;
-    width: 990px;
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
     margin: -20px;
 }
 
 #homePageOverlay {
     position: absolute;
     top: 60%;
-    left: 48.7%;
+    left: 50%;
     transform: translate(-50%, -50%);
     width: 38%;
     height: 50%;
@@ -32,7 +35,7 @@
     position: absolute;
     top: 75%;
     /* Adjust this value to vertically center the button */
-    left: 48.7%;
+    left: 50%;
     /* Adjust this value to horizontally center the button */
     transform: translate(-50%, -50%);
     z-index: 3;
@@ -48,31 +51,67 @@
 
 #logo {
     top: 50%;
-    left: 34%;
-    height: 100px;
+    left: 39.8%;
+    height: 80px;
 }
 
 #stateParksLogoBanner {
-    margin: -11px;
+    margin: -13px;
     border: none;
 }
 
 #exploreText {
     position: absolute;
     top: 46%;
-    left: 49%;
+    left: 50.5%;
     transform: translate(-50%, -50%);
     z-index: 2;
-    font-size: 39px;
+    font-size: 35px;
     font-family: 'Poppins', sans-serif;
 }
 
 #westvirginiatext {
     position: absolute;
-    top: 58%;
-    left: 48.7%;
+    top: 60%;
+    left: 50.4%;
     transform: translate(-50%, -50%);
     z-index: 2;
     font-family: 'Poppins', sans-serif;
-    font-size: 60px;
+    font-size: 80px;
+}
+
+#homePageInfoSegment {
+    display: flex;
+    padding: 20px;
+    /* justify-content: space-evenly; */
+    background-color: rgb(219, 219, 219);
+}
+
+#segmentOne {
+    flex: 60; /* Take up 60% of the available space */
+    padding-left: 100px;
+    border: none;
+    box-shadow: none;
+    background-color: rgb(219, 219, 219);
+}
+
+#segmentTwo {
+    flex: 40; /* Take up 40% of the available space */
+    border: none;
+    box-shadow: none;
+    background-color: rgb(219, 219, 219);
+
+}
+
+
+#homePageInfoSegmentHeader {
+    font-family: 'Poppins', sans-serif;
+    font-size: 40px;
+    padding-top: 15px;
+}
+
+#homePageInfoSegmentBody {
+    font-family: 'Poppins', sans-serif;
+    font-size: 25px;
+    /* padding: 15px; */
 }

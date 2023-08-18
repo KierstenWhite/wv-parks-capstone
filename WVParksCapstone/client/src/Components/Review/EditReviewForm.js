@@ -10,6 +10,7 @@ import {
   Header,
   Input,
 } from "semantic-ui-react";
+import './Review.css'
 
 export const EditReviewForm = () => {
   const [review, updateReview] = useState({
@@ -56,9 +57,9 @@ export const EditReviewForm = () => {
 
   return (
     <>
-      <Form>
-        <Header as="h2">Add a New Review</Header>
-        <Form.Group>
+      <Form id="createAReviewForm">
+        <Header id="h2" as="h2">Add a New Review</Header>
+        <Form.Group widths="equal">
           <Form.Select
             selection
             onChange={(evt, data) => {
@@ -93,6 +94,8 @@ export const EditReviewForm = () => {
             value={review.starsId}
             required
           />
+           </Form.Group>
+          <Form.Group widths="equal">
           <Form.Field
             control={Input}
             onChange={(evt) => {
@@ -106,6 +109,8 @@ export const EditReviewForm = () => {
             value={review.reviewTitle}
             id="reviewTitle"
           />
+           </Form.Group>
+          <Form.Group widths="equal">
           <Form.Field
             control={Input}
             onChange={(evt) => {

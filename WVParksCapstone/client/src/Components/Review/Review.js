@@ -3,7 +3,8 @@ import "semantic-ui-css/semantic.min.css";
 import { useState, useEffect } from "react";
 import { ReviewList } from "./ReviewList";
 import { getAllReviews } from "../../Managers/ReviewManager";
-import { Card, Header } from "semantic-ui-react";
+import { Card, Header, Segment } from "semantic-ui-react";
+import './Review.css'
 
 export const Review = () => {
   const [reviews, setReviews] = useState([]);
@@ -16,10 +17,12 @@ export const Review = () => {
     });
   }, []);
   return (
-    <>
-      <Header as="h2" id="reviewListHeader">
+    <div id="MyReviewListContainer">
+      <Segment id="myReviewsSegment">
+      <Header as="h2" id="h1">
         All WV State Parks Reviews
       </Header>
+      </Segment>
       <Card.Group id="reviewCardGroup" itemsPerRow={4}>
         {reviews.map((review) => (
           <ReviewList
@@ -29,6 +32,6 @@ export const Review = () => {
           />
         ))}
       </Card.Group>
-    </>
+    </div>
   );
 };

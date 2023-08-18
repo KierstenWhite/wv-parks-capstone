@@ -1,4 +1,4 @@
-#MyTripListContainer {
+#MyReviewListContainer {
     padding: 50px;
 }
 
@@ -21,13 +21,20 @@
     height: 100%;
 }
 
-#individualTripCard {
+#individualReviewCard {
     font-family: 'Poppins', sans-serif;
-    
-    background-color: #6c745359
+    padding: 20px;
+    background-color: #85984c2b
 }
 
-#tripCardHeader {
+#individualReviewCardAll {
+    font-family: 'Poppins', sans-serif;
+    padding: 20px;
+    background-color: #e4a08944;
+}
+
+
+#tripReviewHeader {
     font-family: 'Poppins', sans-serif;
     display: flex;
     justify-content: center;
@@ -35,13 +42,13 @@
     font-size: 30px;
 }
 
-#createATripForm {
+#createAReviewForm {
     padding: 45px;
     padding-top: 25px;
     font-family: 'Poppins', sans-serif;
 }
 
-#tripFormHeader {
+#reviewFormHeader {
     padding-top: 45px;
     padding-left: 45px;
     font-family: 'Poppins', sans-serif;
@@ -64,7 +71,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
-#myTripsSegment {
+#myReviewsSegment {
     display: flex;
     justify-content: space-between;
     border: none;

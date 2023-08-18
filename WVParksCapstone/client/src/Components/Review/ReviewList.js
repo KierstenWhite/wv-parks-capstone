@@ -1,5 +1,6 @@
 import 'semantic-ui-css/semantic.min.css';
 import { Card, Image } from "semantic-ui-react";
+import './Review.css'
 
 export const ReviewList = ({ review, currentUser }) => {
   // Calculate the number of stars based on review.starType.value
@@ -14,20 +15,28 @@ export const ReviewList = ({ review, currentUser }) => {
     return stars;
   };
 
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    const year = date.getFullYear();
+    return `${month}/${day}/${year}`;
+  };
+
   return (
     <>
       <Card
-        id="individualParkCard"
+        id="individualReviewCardAll"
         key={`review--${review.id}`}
-        color="green"
+        
       >
         <Card.Header id="reviewCardHeader" as="h3">
           {review.park.name}
         </Card.Header>
-        <Image src={review.imageUrl} id="reviewCardImage" alt="CardImage" />
+        <Image id="polaroid" width="100%" src={review.imageUrl} alt="CardImage" />
         <Card.Content id="reviewCardContent">
           <Card.Description as="h4">
-            {review.user.username} | Date of Visit: {review.dateOfVisit} <br />
+            {review.user.username} | {formatDate(review.dateOfVisit)} <br />
             Park Rating: {renderStarIcons()}
           </Card.Description>
           <Card.Description id="reviewCardDescription">

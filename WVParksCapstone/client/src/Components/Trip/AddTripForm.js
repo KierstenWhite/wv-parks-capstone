@@ -10,6 +10,7 @@ import { getAllActivities } from "../../Managers/ActivityManager";
 import "semantic-ui-css/semantic.min.css";
 import {
   Button,
+  Container,
   Divider,
   Form,
   Header,
@@ -97,10 +98,16 @@ export const AddTripForm = () => {
 
       return (
         <>
-            <Form>
-        <Header as="h2">Create a New Trip</Header>
+        <Segment id='tripFormHeader'>
+          <Header id="h1" as='h1'>Plan Your Trip</Header>
+          <p>Have an idea for your next adventure? Create a trip from the elements below.
+            P.S. If you change your mind, you can always come back and edit it later.
+          </p>
+        </Segment>
+            <Form id="createATripForm">
+        <Header id="h2" as="h2">Create a New Trip</Header>
         {/* <Form.TextArea>To create a trip, you can select one of each type of item.</Form.TextArea> */}
-        <Form.Group>
+        <Form.Group widths="equal">
         <Form.Field
             control={Input}
             onChange={(evt) => {
@@ -113,6 +120,8 @@ export const AddTripForm = () => {
             placeholder="Blackwater Falls Weekend"
             id="tripName"
           />
+          </Form.Group>
+          <Form.Group widths="equal">
           <Form.Select
             selection 
             onChange={(evt, data) => {
@@ -141,12 +150,13 @@ export const AddTripForm = () => {
             options={stay.map((s) => ({
               key: s.id,
               value: s.id,
-              text: s.name,
+              text: `${s.name} (${s.park.name})`,
             }))}
             placeholder="Select a Stay"
             value={trip.stayId}
             required
           />
+
           <Form.Select
             selection
             onChange={(evt, data) => {
@@ -158,12 +168,14 @@ export const AddTripForm = () => {
             options={activity.map((a) => ({
               key: a.id,
               value: a.id,
-              text: a.name,
+              text: `${a.name} (${a.park.name})`,
             }))}
             placeholder="Select an Activity"
             value={trip.activityId}
             required
           />
+          </Form.Group>
+          <Form.Group widths="equal">
           <Form.Select
             selection
             onChange={(evt, data) => {
@@ -175,7 +187,7 @@ export const AddTripForm = () => {
             options={historicalSite.map((hs) => ({
               key: hs.id,
               value: hs.id,
-              text: hs.name,
+              text: `${hs.name} (${hs.park.name})`,
             }))}
             placeholder="Select a Historical Site or Museum"
             value={trip.historicalSiteId}
@@ -192,7 +204,7 @@ export const AddTripForm = () => {
             options={trail.map((t) => ({
               key: t.id,
               value: t.id,
-              text: t.name,
+              text: `${t.name} (${t.park.name})`,
             }))}
             placeholder="Select a Stay"
             value={trip.trailId}

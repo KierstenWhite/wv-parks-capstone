@@ -1,0 +1,39 @@
+#profileCard {
+    margin: 20px;
+    border: none;
+    box-shadow: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+#buttonsOnProfile {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+}
+
+#profileButtons {
+    margin: .5px;
+    background-color: #E4A089;
+    padding: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+#button{
+    font-family: 'Poppins', sans-serif;
+    background-color: #E4A089;
+}
+
+#editColumn {
+    margin-top: 25px;
+}
+
+#editHeaderSegment, #editFormSegment {
+    border: none;
+    box-shadow: none;
+}
+
+#editProfileForm {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+}

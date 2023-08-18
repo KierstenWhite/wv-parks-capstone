@@ -5,6 +5,7 @@ import 'semantic-ui-css/semantic.min.css';
 import { Link, useNavigate } from "react-router-dom";
 import { Button, Card, Grid, Segment, GridRow, Image, Header, Form, Input } from "semantic-ui-react";
 import userEvent from "@testing-library/user-event";
+import './UserProfile.css'
 
 export const UserProfile = () => {
     const [user, editUser] = useState({
@@ -40,33 +41,33 @@ export const UserProfile = () => {
     <Grid id="fullGrid">
        <GridRow>
             <Grid.Column width={5}>
-                <Segment>
-                    <Card>
+                <Segment id="profileCard">
+                    <Card >
                         <Card.Content>
-                            <Image src={user.userPhoto} size="medium" />
+                            <Image id="polaroid" src={user.userPhoto} size="medium" />
                             <Segment>
                                 <strong>Username:</strong> {user.username}<br></br>
                                 <strong>Email:</strong> {user.email}<br></br>
                                 <strong>Bio:</strong> {user.bio}
                             </Segment>
-                            <Segment>
-                                <Link to='/addareview'><Button>Add a Review</Button></Link>
-                                <Link to='/createatrip'><Button>Plan Your Trip</Button></Link>
-                                <Link to='/mytrips'><Button>My Trips</Button></Link>
-                                <Link to='/myreviews'><Button>My Reviews</Button></Link>
+                            <Segment id="buttonsOnProfile">
+                                <Link to='/addareview'><Button size='medium' id="profileButtons">Add a Review</Button></Link>
+                                <Link to='/createatrip'><Button size='medium' id="profileButtons">Plan Your Trip</Button></Link>
+                                <Link to='/mytrips'><Button size='medium' id="profileButtons">My Trips</Button></Link>
+                                <Link to='/myreviews'><Button  size='medium' id="profileButtons">My Reviews</Button></Link>
                             </Segment>
                         </Card.Content>
                     </Card>
                 </Segment>
             </Grid.Column>
-            <Grid.Column width={10}>
-                <Segment>
+            <Grid.Column width={10} id="editColumn">
+                <Segment id="editHeaderSegment">
                     <Header id="editProfileHeader" as="h1">
                         Edit User Profile
                     </Header>
                 </Segment>
-                <Segment>
-                    <Form>
+                <Segment id="editFormSegment">
+                    <Form id="editProfileForm">
                         <Form.Group>
                         <Form.Field
                     control={Input}

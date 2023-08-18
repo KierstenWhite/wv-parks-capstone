@@ -18,7 +18,7 @@ export const MyTripList = ({ trip, currentUser }) => {
 
   return trip.userId === currentUser?.id ? (
     <>
-      <Card id="individualTripCard" key={`trip--${trip.id}`} color="yellow">
+      <Card id="individualTripCard" key={`trip--${trip.id}`}>
         <Card.Header id="tripCardHeader" as="h3">
           {trip.tripName}
         </Card.Header>
@@ -53,8 +53,9 @@ export const MyTripList = ({ trip, currentUser }) => {
               Stay: {trip.stay.name}
             </Accordion.Title>
             <Accordion.Content active={activeIndex === 1}>
-              <Image src={trip.stay.imageUrl} alt="CardImage" />
-              <strong>Number of Sites/Rooms:</strong> {trip.stay.numberOfSites}{" "}
+              <Image id="polaroid" width="100%" src={trip.stay.imageUrl} alt="CardImage" />
+              <strong>Number of Sites/Rooms:</strong> {trip.stay.numberOfSites}
+              <br />
               <br />
               {trip.stay.description}
             </Accordion.Content>
@@ -68,8 +69,8 @@ export const MyTripList = ({ trip, currentUser }) => {
               Trail: {trip.trail.name}
             </Accordion.Title>
             <Accordion.Content active={activeIndex === 2}>
-              <Image src={trip.trail.imageUrl} alt="CardImage" />
-              <strong>Trail Difficulty:</strong> FIX <br />
+              <Image id="polaroid" width="100%" src={trip.trail.imageUrl} alt="CardImage" />
+              <br />
               {trip.trail.description}
             </Accordion.Content>
 
@@ -82,7 +83,7 @@ export const MyTripList = ({ trip, currentUser }) => {
               Historical Site: {trip.historicalSite.name}
             </Accordion.Title>
             <Accordion.Content active={activeIndex === 3}>
-              <Image src={trip.historicalSite.imageUrl} alt="CardImage" />
+              <Image id="polaroid" width="100%" src={trip.historicalSite.imageUrl} alt="CardImage" />
               {trip.historicalSite.description}
             </Accordion.Content>
 
@@ -95,7 +96,7 @@ export const MyTripList = ({ trip, currentUser }) => {
               Activity: {trip.activity.name}
             </Accordion.Title>
             <Accordion.Content active={activeIndex === 4}>
-              <Image src={trip.activity.imageUrl} alt="CardImage" />
+              {/* <Image id="polaroid" width="100%" src={trip.activity.imageUrl} alt="CardImage" /> */}
               {trip.activity.description}
             </Accordion.Content>
 
@@ -108,14 +109,15 @@ export const MyTripList = ({ trip, currentUser }) => {
               Waterfall: {trip.waterfall.name}
             </Accordion.Title>
             <Accordion.Content active={activeIndex === 5}>
-              <Image src={trip.waterfall.imageUrl} alt="CardImage" />
+              <Image id="polaroid" width="100%" src={trip.waterfall.imageUrl} alt="CardImage" />
               {trip.waterfall.description}
             </Accordion.Content>
           </Accordion>
           <Link to={`/editmytrip/${trip?.id}`}>
-            <Button>Edit</Button>
+            <Button id="cardEditButton">Edit</Button>
           </Link>
           <Button
+          id="cardDeleteButton"
             color="red"
             onClick={() => {
               deleteTrip(trip?.id)

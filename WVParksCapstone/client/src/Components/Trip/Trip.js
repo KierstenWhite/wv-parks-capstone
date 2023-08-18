@@ -2,7 +2,7 @@ import 'semantic-ui-css/semantic.min.css';
 import { useState, useEffect } from "react";
 import { MyTripList } from './MyTripList';
 import { getAllTrips } from '../../Managers/TripManager';
-import { Button, Card, Header } from "semantic-ui-react";
+import { Button, Card, Header, Segment } from "semantic-ui-react";
 import "./Trip.css"
 import { Link } from 'react-router-dom';
 
@@ -18,10 +18,12 @@ export const Trip = () => {
   }, []);
   return (
     <div id="MyTripListContainer">
-      <Header as="h2" id="tripListHeader">
+      <Segment id="myTripsSegment">
+      <Header as="h2" id="h1">
        My Trips
       </Header>
-      <Link to={`/createatrip`}><Button>Create a Trip</Button></Link>
+      <Link to={`/createatrip`}><Button size='huge' id="createButton">Create a Trip</Button></Link>
+      </Segment>
       <Card.Group id="tripCardGroup" itemsPerRow={3}>
         {trips.map((trip) => (
           <MyTripList
